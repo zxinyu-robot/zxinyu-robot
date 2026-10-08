@@ -1,19 +1,46 @@
 <div align="center">
 
-### 曾欣宇 · zxinyu-robot
+# 曾欣宇 | Robotics Software Engineer
 
-<p>
-  <a href="https://zxinyu-robot.github.io/musical-robot.github.io/"><img src="https://img.shields.io/badge/Pages-个人站点-222?logo=githubpages" alt="Pages"></a>
-</p>
+机器人空间状态中间件 · SLAM/导航工程化 · 边缘异构计算
+
+Building runtime infrastructure from **Perception → Spatial State → Task Planning → Safe Execution**
+
+[![Email](https://img.shields.io/badge/Email-zxiangsheng%40outlook.com-0A66C2?logo=microsoftoutlook)](mailto:zxiangsheng@outlook.com)
 
 </div>
 
----
+## 目前关注
 
-## 项目列表
+我主要使用 C++ 构建机器人空间计算基础设施，关注多传感器状态如何在资源受限设备上被可靠地产生、传输、融合并交付给任务规划与执行模块。
 
-| 项目名称 | 项目描述 |
-| :--- | :--- |
-| [zxy-self](https://github.com/zxinyu-robot/zxy-self) | 个人简介、技术栈、经历与代表项目（综合展示） |
-| [SLAM Runtime Architecture](https://zxinyu-robot.github.io/musical-robot.github.io/projects/slam-runtime-architecture/) | 协同SLAM系统框架 |
+- 增量状态空间：状态生命周期、因子注入、滑动窗口和边缘化。
+- 定位与导航：LiDAR-IMU 状态估计、地图接口、全局/局部规划链路。
+- 机器人中间件：ROS 2、DDS QoS、任务契约与 BehaviorTree.CPP。
+- 边缘部署：Jetson Orin、RK NPU、Docker、TensorRT/RKNN。
 
+## 代表项目
+
+### [Fork Spatial Runtime](https://github.com/zxinyu-robot/fork-spatial-runtime)
+
+与优化器后端解耦的 C++20 增量空间状态运行时。目前已实现状态生命周期、因子批次校验、原子图事务、固定延迟窗口和可替换优化后端接口，并通过 Linux/macOS CI 验证。
+
+### SlamDoctor（构建中）
+
+面向 SLAM 工程联调的数据质量诊断工具，计划覆盖时间戳、TF 链、轨迹误差和定位健康度检查。达到可重复运行的首个版本后再作为正式项目发布。
+
+## 技术栈
+
+`C++17/20` · `Python` · `ROS 2` · `DDS` · `GTSAM` · `PCL` · `OpenCV`<br>
+`BehaviorTree.CPP` · `Docker` · `Jetson Orin` · `TensorRT` · `RKNN`
+
+## 工程原则
+
+- 区分已经实现、经过验证和仍在规划的能力。
+- 用最小可运行示例、自动化测试和实验方法说明项目，而不是只展示架构图。
+- 让感知、状态估计、任务决策和安全执行通过稳定契约解耦。
+
+## 联系方式
+
+- Email: [zxiangsheng@outlook.com](mailto:zxiangsheng@outlook.com)
+- GitHub: [@zxinyu-robot](https://github.com/zxinyu-robot)
