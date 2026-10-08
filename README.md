@@ -23,6 +23,10 @@ Building runtime infrastructure from **Perception → Spatial State → Task Pla
 
 ## 代表项目
 
+### [Legged Navigation Runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)
+
+面向 Unitree G1/H2 级双足机器人的故障恢复定位与多楼层导航运行时。公开实现自动重定位状态机、配准结果门控、安全停车、连续健康帧恢复确认和 P95 延迟统计，并说明 FAST-LIO2、Scan Context、NDT/ICP、Localizer 与 Nav2 的工程集成边界。
+
 ### [Fork Spatial Runtime](https://github.com/zxinyu-robot/fork-spatial-runtime)
 
 与优化器后端解耦的 C++20 增量空间状态运行时。目前已实现状态生命周期、因子批次校验、原子图事务、固定延迟窗口和可替换优化后端接口，并通过 Linux/macOS CI 验证。
