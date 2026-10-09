@@ -50,9 +50,17 @@ Jetson Orin、RK3588/RK NPU、Docker、并发与异步数据流、拷贝治理�
 
 面向 Unitree G1/H2 级双足机器人的故障恢复定位与多楼层导航运行时。公开实现自动重定位状态机、配准结果门控、安全停车、连续健康帧恢复确认和 P95 延迟统计，并说明 FAST-LIO2、Scan Context、NDT/ICP、Localizer 与 Nav2 的工程集成边界。
 
+### [Legged Terrain State](https://github.com/zxinyu-robot/legged-terrain-state)
+
+面向四足机器人混合地形导航的状态契约与安全降级核心。公开实现 BaseState/TerrainState/ContactState、可通行性评分、风险分级及感知退化时的降速与停车策略。
+
 ### [Swarm Spatial Link](https://github.com/zxinyu-robot/swarm-spatial-link)
 
 面向多机器人协同定位与地图融合的网络自适应通信中间件核心。公开实现 DDS QoS 自适应、关键帧调度、鲁棒时钟偏差估计和统一空间消息契约，并说明 802.11s Mesh、共享内存、Graph-SLAM 与边缘融合的工程边界。
+
+### [Multi-Robot Map Fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)
+
+面向多机器人 3D 地图协同的共享内存数据路径与版本化子图融合核心。公开实现 POSIX 共享内存帧槽、只读零中间拷贝视图、子图身份、约束校验和图版本管理。
 
 ### [Fork Spatial Runtime](https://github.com/zxinyu-robot/fork-spatial-runtime)
 
@@ -70,7 +78,9 @@ Jetson Orin、RK3588/RK NPU、Docker、并发与异步数据流、拷贝治理�
 
 - 增量空间状态 Runtime 与优化后端事务接口。
 - 双足机器人定位失效恢复与安全执行监督器。
+- 四足机器人地形状态契约、可通行性评估与安全降级核心。
 - 多机器人弱网 QoS、关键帧调度和时钟一致性核心。
+- POSIX 共享内存关键帧数据路径与版本化子图融合核心。
 
 ### 正在探索
 
