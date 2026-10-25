@@ -33,17 +33,22 @@ Self-developed middleware for weak-network adaptive communication and versioned 
 
 ## 🧩 Selected Projects
 
-**Autonomous Runtime**
-- **[MotionSLAM_ws](https://github.com/zxinyu-robot/MotionSLAM_ws)** — Quadruped navigation stack; cross-floor navigation validated on a real robot.
-- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — Fault-tolerant navigation runtime: from one-off planning success to sustained operation with explicit fault boundaries and recovery conditions.
-- **[fork-spatial-runtime](https://github.com/zxinyu-robot/fork-spatial-runtime)** — Reusable runtime for spatial state, task contracts and execution lifecycle.
+**Autonomous Runtime (Go2 / legged navigation)**
+- **[MotionSLAM_ws](https://github.com/zxinyu-robot/MotionSLAM_ws)** — ROS 2 cross-floor navigation stack for Go2 + Livox Mid-360 + Orin NX. Behavior-tree orchestration, task runtime and command forwarders are self-developed; localization (Super-LIO) and global / local planning (PCT / SCAN) are integrated from open-source components. The cross-floor closed loop runs end-to-end in cloud simulation (11/11 multi-floor missions succeeded), and online mapping and planning run on the real robot. Currently integrating the fork-spatial-runtime state contract and the legged-navigation-runtime recovery plugin, exercised end-to-end with fault injection.
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — De-identified rewrite of a biped (G1 / H2) navigation project: localization-health and relocalization state machine (Tracking → Searching → Aligning → Verifying → SafeStop), registration gating, timeouts and P50 / P95 latency statistics. ROS-free core; its `RecoveryPlugin` interface is plugged into MotionSLAM as the recovery plugin.
+- **[fork-spatial-runtime](https://github.com/zxinyu-robot/fork-spatial-runtime)** — C++20 spatial-state runtime: state contract (version chain, localization health, execution lease, admission decisions, fault injection), semantic tokens, ESN temporal memory, edge policy management (candidate policies promoted after validation, with rollback) and mission orchestration. Weak-network transport scheduling and DDS protocol generation are not implemented yet.
 
 **Multi-Robot Infrastructure**
-- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link) · [multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** — Self-developed middleware cores: weak-network adaptive communication; shared-memory data path with versioned submap fusion.
+- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** — De-identified rewrite of a multi-robot collaborative SLAM project: classifies links as Healthy / Constrained / Critical from loss, latency and queue load, and applies different DDS QoS to poses, keyframes and submaps; also includes clock-offset estimation and keyframe scheduling.
+- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** — POSIX shared-memory keyframe slot (`shm_open` + `mmap`, sequence numbers and checksums) and a versioned submap registry (idempotent intake, constraint validation, monotonic `graph_version`).
 
-**Tools & Baselines**
-- **[SlamDoctor](https://github.com/zxinyu-robot/SlamDoctor)** — Self-developed SLAM / navigation diagnosis CLI based on runtime evidence and fault graphs.
-- [legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state) · [interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)
+**Tools & Learning Baselines**
+- **[SlamDoctor](https://github.com/zxinyu-robot/SlamDoctor)** — SLAM / navigation diagnosis CLI: checks timing, frame, rate and data-age contracts, ranks root causes on a fault graph with the next low-cost probe, and reports in JSON / Markdown / Mermaid.
+- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — Terrain-state contract and safe degradation for quadrupeds on mixed terrain: traversability scoring, risk levels and Normal / ReduceSpeed / HoldPosition safety modes.
+- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — Interruptible navigation learning baseline: behavior cloning, DAgger and mid-course language corrections in a 2D environment, reproducible on CPU.
+- **[sim2skill](https://github.com/zxinyu-robot/sim2skill)** — MuJoCo embodied-manipulation practice: tool pick-and-place and surface wiping, an independent safety layer and bounded residual policies; not yet on hardware.
+
+> Repos marked "de-identified rewrite" are public rewrites of past projects and contain only the independently testable core; full systems, vendor SDKs and real-robot data are not published. Every repo has unit tests and CI; see each repo's docs for implementation status.
 
 ---
 

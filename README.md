@@ -35,17 +35,22 @@
 
 ## 🧩 Selected Projects
 
-**自主运行时**
-- **[MotionSLAM_ws](https://github.com/zxinyu-robot/MotionSLAM_ws)** — 四足机器人自主导航工程，跨楼层导航已在真机上跑通。
-- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — 容错导航运行时：从单次规划成功，走向有明确故障边界与恢复条件的持续运行。
-- **[fork-spatial-runtime](https://github.com/zxinyu-robot/fork-spatial-runtime)** — 空间状态、任务契约与执行生命周期的可复用运行时。
+**自主运行时（Go2 / 腿式导航主线）**
+- **[MotionSLAM_ws](https://github.com/zxinyu-robot/MotionSLAM_ws)** — Go2 + Livox Mid-360 + Orin NX 的 ROS 2 跨楼层导航工程。行为树编排、任务运行时和指令转发为自研；定位（Super-LIO）、全局 / 局部规划（PCT / SCAN）在开源组件上做工程集成。跨楼层闭环已在云端仿真中跑通（多楼层任务 11/11 成功），真机上在线建图与规划已运行；正在接入 fork-spatial-runtime 的状态契约与 legged-navigation-runtime 的恢复插件，用故障注入做端到端演练。
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — 双足（G1 / H2）导航工程的脱敏重构：定位健康度与重定位状态机（Tracking → Searching → Aligning → Verifying → SafeStop）、配准门控、超时保护和 P50 / P95 延迟统计。核心无 ROS 依赖；`RecoveryPlugin` 接口已作为恢复插件接入 MotionSLAM。
+- **[fork-spatial-runtime](https://github.com/zxinyu-robot/fork-spatial-runtime)** — C++20 空间状态运行时：状态契约（版本链、定位健康度、执行租约、准入判定、故障注入）、语义 Token、ESN 时序记忆、端侧策略管理（候选策略验证后发布、可回滚）与任务编排。弱网传输调度和 DDS 协议生成尚未实现。
 
 **多机器人基础设施**
-- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link) · [multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** — 自研中间件核心：弱网自适应通信；共享内存数据通路与版本化子图融合。
+- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** — 多机协同 SLAM 工程的脱敏重构：按丢包 / 时延 / 队列把链路分为 Healthy / Constrained / Critical 三档，为位姿、关键帧、子图配置不同的 DDS QoS；另含时钟偏差估计与关键帧调度。
+- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** — POSIX 共享内存关键帧通道（`shm_open` + `mmap`，序列号与校验和）和版本化子图注册表（幂等接收、约束校验、`graph_version` 递增）。
 
-**工具与基线**
-- **[SlamDoctor](https://github.com/zxinyu-robot/SlamDoctor)** — 自研 SLAM / 导航诊断 CLI，基于运行证据与故障图。
-- [legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state) · [interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)
+**工具与学习基线**
+- **[SlamDoctor](https://github.com/zxinyu-robot/SlamDoctor)** — SLAM / 导航诊断 CLI：检查时间、坐标、频率和数据年龄契约，按故障图排序根因并给出下一步低成本排查，输出 JSON / Markdown / Mermaid 报告。
+- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — 四足混合地形的状态契约与安全降级：可通行性评分、风险分级，以及 Normal / ReduceSpeed / HoldPosition 三档安全模式。
+- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — 可中断导航学习基线：2D 环境中的行为克隆、DAgger 与中途语言纠正，CPU 上可复现。
+- **[sim2skill](https://github.com/zxinyu-robot/sim2skill)** — MuJoCo 具身操作练习：工具拾放与表面清洁、独立安全层和有界残差策略；尚未上真机。
+
+> 标注"脱敏重构"的仓库是过往工程的公开重写，只包含可独立测试的核心；完整系统、厂商 SDK 与实机数据不公开。各仓库均有单元测试与 CI，实现状态以仓库内文档为准。
 
 ---
 
