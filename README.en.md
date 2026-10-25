@@ -48,7 +48,7 @@ Self-developed middleware for weak-network adaptive communication and versioned 
 - **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — Interruptible navigation learning baseline: behavior cloning, DAgger and mid-course language corrections in a 2D environment, reproducible on CPU.
 - **[sim2skill](https://github.com/zxinyu-robot/sim2skill)** — MuJoCo embodied-manipulation practice: tool pick-and-place and surface wiping, an independent safety layer and bounded residual policies; not yet on hardware.
 
-> Repos marked "de-identified rewrite" are public rewrites of past projects and contain only the independently testable core; full systems, vendor SDKs and real-robot data are not published. Every repo has unit tests and CI; see each repo's docs for implementation status.
+> Repos marked "de-identified rewrite" are public rewrites of past projects and contain only the independently testable core; full systems, vendor SDKs and real-robot data are not published. See each repo's code, tests and docs for implementation status.
 
 ---
 

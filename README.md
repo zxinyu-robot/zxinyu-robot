@@ -50,7 +50,7 @@
 - **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — 可中断导航学习基线：2D 环境中的行为克隆、DAgger 与中途语言纠正，CPU 上可复现。
 - **[sim2skill](https://github.com/zxinyu-robot/sim2skill)** — MuJoCo 具身操作练习：工具拾放与表面清洁、独立安全层和有界残差策略；尚未上真机。
 
-> 标注"脱敏重构"的仓库是过往工程的公开重写，只包含可独立测试的核心；完整系统、厂商 SDK 与实机数据不公开。各仓库均有单元测试与 CI，实现状态以仓库内文档为准。
+> 标注"脱敏重构"的仓库是过往工程的公开重写，只包含可独立测试的核心；完整系统、厂商 SDK 与实机数据不公开。实现状态以各仓库的代码、测试和文档为准。
 
 ---
 
