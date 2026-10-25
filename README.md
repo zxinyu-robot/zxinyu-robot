@@ -39,12 +39,12 @@
 
 | 平台 | 仓库 | 当前验证程度 |
 |---|---|---|
-| Unitree Go2 四足 | MotionSLAM_ws | 云端仿真跨楼层闭环 11/11；真机在线建图与规划 |
+| Unitree Go2 四足 | quadruped-crossfloor-nav-ws | 云端仿真跨楼层闭环 11/11；真机在线建图与规划 |
 | Unitree G1 / H2 双足 | legged-navigation-runtime | 脱敏重构：定位恢复核心 + 单元测试 |
 | 复合清洁机器人（移动底盘 + xArm） | CleanRobot-Sim2Real-skill | MuJoCo 仿真，尚未上真机 |
 
-- **[MotionSLAM_ws](https://github.com/zxinyu-robot/MotionSLAM_ws)** — Go2 + Livox Mid-360 + Orin NX 的端侧自主导航闭环（ROS 2，跨楼层）。行为树编排、任务运行时和指令转发为自研；定位（Super-LIO）、全局 / 局部规划（PCT / SCAN）在开源组件上做工程集成。跨楼层闭环已在云端仿真中跑通（多楼层任务 11/11 成功），真机上在线建图与规划已运行；正在接入 ForkSpatial-Runtime-Engine 的状态契约与 legged-navigation-runtime 的恢复插件，用故障注入做端到端演练。
-- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — G1 / H2 双足端侧自主导航闭环的脱敏重构，公开的是定位失效恢复部分：定位健康度与重定位状态机（Tracking → Searching → Aligning → Verifying → SafeStop）、配准门控、超时保护和 P50 / P95 延迟统计。核心无 ROS 依赖；`RecoveryPlugin` 已作为恢复插件接入 MotionSLAM，双足、四足共用同一套恢复逻辑。
+- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX 的端侧自主导航闭环（ROS 2，跨楼层）。行为树编排、任务运行时和指令转发为自研；定位（Super-LIO）、全局 / 局部规划（PCT / SCAN）在开源组件上做工程集成。跨楼层闭环已在云端仿真中跑通（多楼层任务 11/11 成功），真机上在线建图与规划已运行；正在接入 ForkSpatial-Runtime-Engine 的状态契约与 legged-navigation-runtime 的恢复插件，用故障注入做端到端演练。
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — G1 / H2 双足端侧自主导航闭环的脱敏重构，公开的是定位失效恢复部分：定位健康度与重定位状态机（Tracking → Searching → Aligning → Verifying → SafeStop）、配准门控、超时保护和 P50 / P95 延迟统计。核心无 ROS 依赖；`RecoveryPlugin` 已作为恢复插件接入 quadruped-crossfloor-nav-ws，双足、四足共用同一套恢复逻辑。
 - **[CleanRobot-Sim2Real-skill](https://github.com/zxinyu-robot/CleanRobot-Sim2Real-skill)** — 复合清洁机器人的操作技能层。原工程是 ROS1 真机系统（xArm、RealSense、移动底盘、清洁执行器）；本仓库在 MuJoCo 中实现工具拾放与表面清洁、独立安全层和有界残差策略，尚未上真机。
 
 **跨平台空间运行时**
