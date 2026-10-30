@@ -62,7 +62,7 @@ Three representative work stages; commercial work, production work, and personal
 
 <video src="assets/demo/uav_clip_105_126.mp4" controls width="560"></video>
 
-<img src="assets/demo/IMG_7063.jpg" width="300">
+<img src="assets/demo/IMG_7063.jpg" width="300"> <img src="assets/demo/IMG_7156.jpg" width="420">
 
 ### Case B · Legged robot autonomous navigation in dynamic environments
 
@@ -79,7 +79,7 @@ Three representative work stages; commercial work, production work, and personal
 
 <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="560">
 
-<img src="assets/demo/28.jpg" width="480"> <img src="assets/demo/IMG_7156.jpg" width="420">
+<img src="assets/demo/28.jpg" width="480">
 
 ### Case C · Spatial state and intelligent system interaction
 
