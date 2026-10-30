@@ -67,13 +67,11 @@
 - **实现**：构建端边协同导航中间件，统一定位状态、任务契约、规划接口与故障恢复语义。
 - **结果**：跨楼层闭环云端仿真 11/11 通过，真机在线建图与规划已运行（对应 [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)）。
 
-**▶ 演示（四足跨楼层 / SLAM 导航可视化）**
+**▶ 演示**
 
-<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="560">
-
-<img src="assets/demo/54.jpg" width="360"> <img src="assets/demo/55.jpg" width="360">
-
-<img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="560">
+| 四足跨楼层导航 | SLAM 导航可视化 | 点云建图 |
+| --- | --- | --- |
+| <img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="400"> | <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="400"> | <img src="assets/demo/54.jpg" width="400"> |
 
 ### 案例 C · 空间状态与智能系统交互
 

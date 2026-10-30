@@ -67,13 +67,11 @@ Three representative work stages; commercial work, production work, and personal
 - **Approach**: Built edge-cloud navigation middleware, unifying localization state, task contracts, planning interfaces, and fault-recovery semantics.
 - **Outcome**: Cross-floor loop passed cloud simulation 11/11; real-robot online mapping and planning running (see [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)).
 
-**▶ Demo (quadruped cross-floor / SLAM visualization)**
+**▶ Demo**
 
-<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="560">
-
-<img src="assets/demo/54.jpg" width="360"> <img src="assets/demo/55.jpg" width="360">
-
-<img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="560">
+| Quadruped cross-floor navigation | SLAM visualization | Point-cloud mapping |
+| --- | --- | --- |
+| <img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="400"> | <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="400"> | <img src="assets/demo/54.jpg" width="400"> |
 
 ### Case C · Spatial state and intelligent system interaction
 
