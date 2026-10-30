@@ -6,138 +6,138 @@
 
 **中文** | [English](./README.en.md)
 
-> **From autonomous robots to governed intelligent systems.**
+> **From Engineering Practice to Systems Thinking**
+> 从通信工程出发，在无人系统与机器人领域开展自主导航、嵌入式系统与中间件研发，逐步走向智能系统的组织与治理。
+
+---
+
+## About Me
+
+我是一名通信工程背景的机器人系统工程师，长期从事复杂环境下机器人自主系统的研发与工程实践，关注**空间状态、智能行为与系统协同**之间的关系。
+
+从无 GPS 与弱网环境下的无人机，到动态环境中的足式机器人，再到空间状态与上层智能体之间的交互，我逐渐认识到：机器人智能不只是感知、规划或控制算法的组合，更涉及**状态如何被理解、行为如何被组织，以及不同主体如何在不确定环境中协同**。
+
+我的实践可概括为三个阶段：
+
+**第一阶段 · 让机器人在受限环境中自主运行**
+基于几何 SLAM、传统路径规划与运动控制，通过状态机组织导航、任务执行与异常处理；覆盖 AGV、无 GPS 四旋翼、四足及双足机器人；处理无 GPS、弱网、强干扰与工业巡检等复杂环境；完成端侧嵌入式部署、系统集成与性能优化，并研发多机协同调度与导航任务执行系统。
+
+**第二阶段 · 让机器人在动态环境中持续完成任务**
+面向动态非结构化环境，利用端边协同资源分配构建导航中间件，解决四足机器人跨楼层、长航时目标导航等系统问题；关注定位、地图、规划、控制之间的状态一致性，以及任务中断后的故障检测、恢复与继续执行。
+
+**第三阶段 · 从导航转向空间状态与智能行为的组织**
+在前两阶段之上形成更高层抽象：机器人不应只依赖某一种地图、某一种规划算法或某一种智能模型，而应建立**不同层次空间信息之间的组织关系**——由此形成度量空间、符号空间、世界空间的认知框架，并探索世界空间状态的数据分发、版本与生命周期管理，以及机器人与上游世界模型的异步交互。
+
+---
+
+## Engineering Capabilities
+
+按完整工程链路的组织能力划分，而非技术栈罗列：
+
+| 能力领域 | 内容 |
+| --- | --- |
+| 机器人自主系统 | SLAM、导航、规划控制、行为调度、故障恢复 |
+| 中间件与系统架构 | 消息通信、DDS、任务生命周期、状态管理、多机协同 |
+| 嵌入式与端边协同 | Linux、C++、嵌入式部署、边端资源调度、系统集成 |
+| 空间智能与交互 | 多空间状态表达、世界状态分发、模型与机器人异步交互 |
+
+---
+
+## Selected Engineering Work
+
+三个代表性工作阶段；商业项目、实际工作与个人开源重构分开表述。
+
+### 案例 A · 受限环境下的机器人自主系统
+
+- **背景**：无 GPS、弱网断网、工业巡检等受限环境中的无人机与多机导航。
+- **职责**：自主导航系统研发、状态机任务调度、多机协同调度、嵌入式部署与系统集成优化。
+- **实现**：基于几何 SLAM 与传统运动控制，开发基于消息中间件的无 GPS 无人机导航任务执行中间件产品；参与军用飞行器导航模块研发。
+- **结果**：覆盖 AGV、无 GPS 四旋翼、四足及双足等不同形态平台，在弱网、强干扰与室内外混合环境中交付。
+
+### 案例 B · 动态环境下的足式机器人自主导航
+
+- **背景**：动态非结构化环境中的四足机器人长航时、跨楼层目标导航。
+- **职责**：端边协同资源分配、自研导航中间件、关键算法场景适配优化。
+- **实现**：构建端边协同导航中间件，统一定位状态、任务契约、规划接口与故障恢复语义。
+- **结果**：跨楼层闭环云端仿真 11/11 通过，真机在线建图与规划已运行（对应 [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)）。
+
+### 案例 C · 空间状态与智能系统交互
+
+- **背景**：机器人的空间状态如何被上层智能体与世界模型可靠消费。
+- **职责**：三空间认知框架的工程化、世界空间状态数据分发服务设计。
+- **实现**：自研基于足式机器人世界空间状态的数据分发服务中间件，与上游世界模型进行异步状态任务导航行为交互。
+- **结果**：公开重构为可构建、可测试的核心——状态契约、定位恢复、地形契约、弱网协同、共享内存融合、只读诊断。
+
+---
+
+## Current Focus
+
+统一方向：**真实环境中的自主智能系统及其组织机制**。
+
+三个研究尺度（递进）：
+
+1. **单体智能** — 空间状态理解、自主行为、长期任务执行与故障恢复；
+2. **群体智能** — 异构机器人、多智能体协同、信息共享与任务组织；
+3. **社会技术系统** — 人机协作、权限分配、风险治理与责任追踪。
+
+近期工作：
+
+- **可靠自主导航**：四足跨楼层目标导航真机闭环已完成，当前对齐定位状态、任务契约、规划接口与故障恢复语义。
+- **可复用空间运行时中间件**：让状态的来源、版本、置信度、有效期和失败语义被下游规划与执行模块明确理解。
+- **弱网下的多机协同**：自适应通信与版本化子图融合，研究局部信息、通信延迟与数据不一致如何影响协同。
+
+---
+
+## Fork · Engineering Philosophy
+
+Fork 不是一套要与现有系统竞争的技术路线，而是我在长期工程实践中逐渐形成的**工程价值观**。
+
+- **技术应当服务于真实问题** — 不为技术而技术，不以复杂度衡量价值。
+- **自主不等于失去约束** — 智能系统应当知道自己的状态、能力边界与行为权限。
+- **可靠性来自可理解与可纠正** — 能够解释状态、识别异常、恢复运行，并允许撤销与回滚。
+- **技术进步应当尊重人的利益** — 自动化不成为逃避责任的理由，效率不凌驾于安全之上。
+
+> **佛科 · Fork —— 科技应当可靠，而不加害。**
 >
-> 从机器人的自主运行，到开放环境中智能系统的协同与治理。
+> Fork，意为从既有系统中派生能力，通过拆分、组合、替换与演进，让技术能力具备可解释、可验证、可回滚的特性。
+>
+> 工程主张：**可解释 · 可验证 · 可替换 · 可回滚 · 可靠而不加害**
 
 ---
 
-## 愿景｜佛科 · Fork
+## How I Think About Systems
 
-> **佛科 · Fork —— 让技术如清音，可靠而不加害。**
+### 三空间：我如何理解机器人所处的世界
 
-**以 Fork 之道，构建可信、可解释、可回滚的机器人空间运行时。**
-
-Fork，意为从既有系统中分支、继承并持续演进。我致力于将成熟系统中的能力解耦、封装与标准化，使其成为可复用、可替换、可组合的独立模块；再以明确的接口契约、状态生命周期与故障恢复机制，让能力调用有据可依、系统运行有迹可循、异常发生时可控、可恢复。
-
-"佛科"取 Fork 之谐音，承载一种技术信念：以审慎之心发展科技，以可靠为工程底线，以不加害为技术原则。
-
-技术的价值，不止于能力边界的拓展，更在于对**运行边界、失效边界与责任边界**的清晰认知——这正是空间运行时让机器人安全、可信、可持续运行的承诺。
-
-## 工程背景和原则
-
-我具有通信工程背景，工程实践覆盖 AGV、无 GPS 无人机及四足、双足机器人，常面临弱网、强干扰与室内外混合等复杂运行环境。基于真实机器人系统，我研究自主智能体在不确定环境中的可信状态管理、行为执行与故障恢复，并进一步探索这些机制在异构多智能体协同，以及人机共享环境中的权限、风险与责任治理。
-
-- **契约优先**：任何状态进入系统前先验证——坐标有效、范围合法、版本匹配；无效即拒绝，不传播。
-- **确定性**：有界资源、拒绝而非异常，保证在受限真机上的行为可预测。
-- **所有权清晰**：唯一写者、只读视图，可变状态不共享裸指针。
-- **可验证**：控制流简单、状态可测，数字必带口径（已交付 / 公开原型 / 研究探索）。
-- **学习输出是候选，不是指令**：只出建议并携带置信度、版本与失效标志，最终执行权在本地控制器。
-
----
-
-## 🔧 What I'm Working On
-
-**1. 可靠自主导航**
-四足机器人跨楼层目标导航；真机已完成闭环。当前重点是对齐定位状态、任务契约、规划接口与故障恢复语义：回答当定位退化、规划失败或执行超时时，系统如何识别故障、采取安全动作，并在满足恢复条件后继续执行任务？
-
-**2. 可复用空间运行时中间件系统**
-自研空间状态、任务契约与执行生命周期的运行时，让状态的来源、版本、置信度、有效期和失败语义能被下游规划与执行模块明确理解。
-
-**3. 弱网下的多机协同**
-自研面向弱网的自适应通信与版本化子图融合中间件，研究局部信息、通信延迟和数据不一致如何影响多机器人协同。
-
-*近期目标*：通过真机实验、数据回放、可控故障注入与对照评估，把这些工程问题转化为可度量的研究问题。
-
----
-
-## 🧩 Selected Projects
-
-> 公开仓库均可构建、可测试；标注 ▶ 的附可运行 demo（终端回放）。可视化 demo 陆续补入。
-
-**▶ Demo 速览（终端回放）**
-
-| 仓库 | 运行命令 | 展示内容 |
-|---|---|---|
-| legged-navigation-runtime | `./build/default/recovery_demo` | 定位失效 → 搜索 → 配准 → 恢复 |
-| swarm-spatial-link | `./build/default/weak_link_demo` | 弱网三态 QoS 自适应 |
-| fork-spatial-runtime | `./build/default/examples/cpp/runtime_demo` | 图事务与状态生命周期 |
-| multi-robot-map-fusion | `./build/default/fusion_demo` | 共享内存 + 子图登记 |
-| legged-terrain-state | `./build/default/terrain_demo` | 地形风险分级与安全模式 |
-| SlamDoctor-Runtime | `slam-doctor diagnose examples/nav_oscillation.jsonl` | 八类症状根因排查 |
-
-示例（legged-navigation-runtime，合成回放）：
-
-```text
-$ ./build/default/recovery_demo
-relocalization replay
-  t= 100 ms  tracking -> tracking   action=hold_motion
-  t= 600 ms  tracking -> searching   action=search_candidate
-  t= 800 ms  searching -> aligning   action=run_fine_alignment
-  t=1100 ms  aligning -> verifying   action=reset_localizer
-  t=1400 ms  verifying -> tracking   action=resume_navigation
-synthetic latency window: samples=10 p50=17.2 ms p95=24.8 ms max=24.8 ms
-```
-
-**三个平台的端侧系统**（每个平台对应一个仓库）
-
-| 平台 | 仓库 | 当前验证程度 | Demo |
-|---|---|---|---|
-| Unitree Go2 四足 | quadruped-crossfloor-nav-ws | 云端仿真跨楼层闭环 11/11；真机在线建图与规划 | ▶ [3D 在线演示](https://zxinyu-robot.github.io/musical-robot.github.io/dog/) |
-| Unitree G1 / H2 双足 | legged-navigation-runtime | 脱敏重构：定位恢复核心 + 单元测试 | ▶ recovery_demo |
-| 复合清洁机器人（移动底盘 + xArm） | CleanRobot-Sim2Real-skill | MuJoCo 仿真，尚未上真机 | — |
-
-- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX 的端侧自主导航闭环（ROS 2，跨楼层）。行为树编排、任务运行时和指令转发为自研；定位（Super-LIO）、全局 / 局部规划（PCT / SCAN）在开源组件上做工程集成。跨楼层闭环已在云端仿真中跑通（多楼层任务 11/11 成功），真机上在线建图与规划已运行；正在接入 ForkSpatial-Runtime-Engine 的状态契约与 legged-navigation-runtime 的恢复插件，用故障注入做端到端演练。
-- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — G1 / H2 双足端侧自主导航闭环的脱敏重构，公开的是定位失效恢复部分：定位健康度与重定位状态机（Tracking → Searching → Aligning → Verifying → SafeStop）、配准门控、超时保护和 P50 / P95 延迟统计。核心无 ROS 依赖；`RecoveryPlugin` 已作为恢复插件接入 quadruped-crossfloor-nav-ws，双足、四足共用同一套恢复逻辑。
-- **[CleanRobot-Sim2Real-skill](https://github.com/zxinyu-robot/CleanRobot-Sim2Real-skill)** — 复合清洁机器人的操作技能层。原工程是 ROS1 真机系统（xArm、RealSense、移动底盘、清洁执行器）；本仓库在 MuJoCo 中实现工具拾放与表面清洁、独立安全层和有界残差策略，尚未上真机。
-
-**跨平台空间运行时**
-
-- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — C++20 空间状态运行时：状态契约（版本链、定位健康度、执行租约、准入判定、故障注入）、语义 Token、ESN 时序记忆、端侧策略管理（候选策略验证后发布、可回滚）与任务编排。弱网传输调度和 DDS 协议生成尚未实现。
-
-**定位安全与诊断**（分工：传感器层隔离 / 运行时恢复 / 事后诊断）
-
-- **[SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime)** — LiDAR 受污染时的定位自救：检测、可信度仲裁、七态状态机、安全速度上限与恢复门控；Python 实现，含故障注入与 JSONL 回放，目前只在合成数据上验证。
-- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — SLAM / 导航诊断 CLI：检查时间、坐标、频率和数据年龄契约，按故障图排序根因并给出下一步低成本排查，输出 JSON / Markdown / Mermaid 报告。
-- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — 四足混合地形的状态契约与安全降级：可通行性评分、风险分级，以及 Normal / ReduceSpeed / HoldPosition 三档安全模式。
-
-**多机器人基础设施**
-
-- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** — 多机协同 SLAM 工程的脱敏重构：按丢包 / 时延 / 队列把链路分为 Healthy / Constrained / Critical 三档，为位姿、关键帧、子图配置不同的 DDS QoS；另含时钟偏差估计与关键帧调度。
-- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** — POSIX 共享内存关键帧通道（`shm_open` + `mmap`，序列号与校验和）和版本化子图注册表（幂等接收、约束校验、`graph_version` 递增）。
-
-**学习基线**
-
-- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — 可中断导航学习基线：2D 环境中的行为克隆、DAgger 与中途语言纠正，CPU 上可复现。
-- **[terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl)** — Go2 + Piper 机械臂一体化强化学习脚手架：19 维动作、教师→学生蒸馏、域随机化与延迟模型；尚未接 Isaac Lab，没有训练结果。
-
-> 标注"脱敏重构"的仓库是过往工程的公开重写，只包含可独立测试的核心；完整系统、厂商 SDK 与实机数据不公开。实现状态以各仓库的代码、测试和文档为准。
-
----
-
-## 方法论：空间地图底座与三空间框架
-
-**地图是导航的度量底座。** 核心抽象只有三层：
-
-- **坐标契约**——全局绝对基准（如 WGS84 经纬高），任何局部结果都能回到一个可验证的地理真值；
-- **瓦片分片**——有界空间区域 + 稳定标识，局部地图（SLAM 的 map/odom）对齐到全局瓦片基准，形成"局部可更新、全局可寻址"的分层地图；
-- **哈希寻址**——瓦片按统一方案寻址（如高德/XYZ 瓦片哈希），城市级、跨机、跨厂商可共享同一套空间索引。
-
-由此形成一条演进链路：**机器人局部度量地图 → 城市级瓦片化地图 → 元宇宙持久空间地图**。
-
-在这座底座之上，自主与协同都归结为三个空间在一致的时间、坐标系和版本上交换，而不是混在一个大模型里：
-
-| 空间 | 承载什么 | 对应链 |
+| 空间 | 回答的问题 | 描述 |
 | --- | --- | --- |
-| 度量空间 metric | 位姿、地图、轨迹、协方差 | 状态链 |
-| 符号空间 symbolic | 语义、技能、任务、前置条件 | 任务链 |
-| 世界空间 world | 预测、决策、状态演化 | 预测链 |
+| 度量空间 Metric | 我在哪里？周围有什么？可否通行？ | 定位、地图、几何关系、运动状态 |
+| 符号空间 Symbolic | 对象是什么？什么关系？任务意味着什么？ | 语义、关系、约束、任务意义 |
+| 世界空间 World | 系统所理解的世界处于什么状态？哪些可信、哪些可执行？ | 供自主系统、上层智能体与世界模型交互的任务相关状态 |
+
+三空间是正在演进的系统认知框架，不等同于三种互斥的地图算法，也不把 World Space 与 World Model 混为一谈。
+
+### 状态契约：我如何理解系统可靠性
+
+状态不只是数据结构，还应包含：
+
+- **来源与时间** — 从哪里产生、何时产生；
+- **坐标系与版本** — 属于哪个空间基准与版本；
+- **置信度与有效期** — 是否可信、是否过期；
+- **生命周期** — 如何更新、失效与撤销；
+- **权限与责任** — 谁可以使用、修改并依据它执行。
+
+这一思想可继续延伸到任务契约、行为执行、故障恢复与多智能体协同。
+
+### 研究尺度：我希望继续回答什么问题
+
+自主智能体 → 多智能体系统 → 社会技术系统（详见 Research Agenda）。
 
 ---
 
-## 🧠 Research Agenda
+## Research Agenda
 
-这些问题从工程实践中逐步形成，仍在演进。我把当前的系统设计和学习机制视为待检验的假设，而不是最终方案。研究分为三个递进的层次。
+这些问题从工程实践中逐步形成，仍在演进。我把当前的系统设计和学习机制视为待检验的假设，而非最终方案。
 
 ### Layer 1 · Autonomous Systems
 
@@ -145,15 +145,11 @@ synthetic latency window: samples=10 p50=17.2 ms p95=24.8 ms max=24.8 ms
 
 **01 — State Reliability**
 How should autonomous systems represent, validate and manage the lifecycle of spatial and decision-relevant states?
-
 自主系统如何表达、验证与管理空间状态及决策相关信息的有效性、可信度和生命周期？
-*落点*：局部 map/odom 对齐到全局瓦片基准时，坐标、版本与置信度如何可验证（度量空间）。
 
 **02 — Experience and Adaptive Behavior**
 How can robots accumulate reusable behavioral experience without blindly reusing outdated or context-inappropriate policies?
-
 机器人如何积累可复用的行为经验，同时避免过时经验或错误策略迁移到不适用的场景？
-*落点*：情景 / 时序记忆如何随地图版本失效而失效（世界空间）。
 
 *验证路径*：状态过期检测、重定位成功率、恢复时间、安全停车、任务完成率。
 
@@ -163,9 +159,7 @@ How can robots accumulate reusable behavioral experience without blindly reusing
 
 **03 — Resilient Multi-Agent Coordination**
 How can heterogeneous agents coordinate and recover under partial observability, limited communication and conflicting constraints?
-
 在局部可观测、通信受限及约束冲突的情况下，异构智能体如何保持协同并恢复正常运行？
-*落点*：多机共享同一瓦片寻址空间时的地图一致性与版本冲突（度量 + 符号空间）。
 
 *验证路径*：丢包与时延下的协同表现、通信开销、地图一致性、任务恢复能力。
 
@@ -175,26 +169,69 @@ How can heterogeneous agents coordinate and recover under partial observability,
 
 **04 — Authority and Accountability**
 How should task authority, human intervention, escalation rules and accountability be distributed among autonomous agents, operators and institutions in shared environments?
-
 在自主智能体与人、组织共同运行的环境中，任务权限、人工介入、升级处置和责任追踪，应如何在智能体、操作人员与组织之间配置？
-*落点*：城市级持久空间地图（迈向元宇宙空间地图）的共享规则、权限与责任归属（符号空间）。
 
 *探索路径*：人工介入规则、任务授权、故障升级流程、决策与责任的可追溯性。
 
+### Research Approach
+
+- **系统工程** — 定义状态、任务、权限与故障恢复的契约。
+- **计算实验** — 真机、数据回放、可控故障注入与对照实验。
+- **候选机制** — 语义状态 Token、时序/情景记忆、端侧持续适应、世界模型；各自独立评估、可替换，而非预设唯一路线。
+- **社会技术分析**（计划中）— 结合 STS、Technology Policy 与 Computational Social Science，分析角色分工、运行规则、人工干预与责任机制。
+
 ---
 
-## 🧭 Research Approach
+## Open Source Projects
 
-- **系统工程** — 定义状态、任务、权限与故障恢复的契约；地图以坐标契约、瓦片分片、哈希寻址三层组织。
-- **计算实验** — 真机、数据回放、可控故障注入与对照实验。
-- **候选机制** — 语义状态 Token、时序 / 情景记忆（如 ESN）、端侧持续适应、世界模型；各自独立评估、可替换，而非预设的唯一路线。
-- **社会技术分析**（计划中）— 结合 STS、Technology Policy 与 Computational Social Science，分析角色分工、运行规则、人工干预与责任机制如何影响智能系统的实际运行。
+> 公开仓库均可构建、可测试；标注 ▶ 的附可运行 demo。商业项目与生产系统不公开，此处只放可独立测试的核心重构。
+
+**▶ Demo 速览（终端回放）**
+
+| 仓库 | 运行命令 | 展示内容 |
+| --- | --- | --- |
+| legged-navigation-runtime | `./build/default/recovery_demo` | 定位失效 → 搜索 → 配准 → 恢复 |
+| swarm-spatial-link | `./build/default/weak_link_demo` | 弱网三态 QoS 自适应 |
+| fork-spatial-runtime | `./build/default/examples/cpp/runtime_demo` | 图事务与状态生命周期 |
+| multi-robot-map-fusion | `./build/default/fusion_demo` | 共享内存 + 子图登记 |
+| legged-terrain-state | `./build/default/terrain_demo` | 地形风险分级与安全模式 |
+| SlamDoctor-Runtime | `slam-doctor diagnose examples/nav_oscillation.jsonl` | 八类症状根因排查 |
+
+**三个平台的端侧系统**
+
+| 平台 | 仓库 | 当前验证程度 | Demo |
+| --- | --- | --- | --- |
+| Unitree Go2 四足 | quadruped-crossfloor-nav-ws | 云端仿真跨楼层闭环 11/11；真机在线建图与规划 | ▶ 视频见仓库 `docs/media/` |
+| Unitree G1 / H2 双足 | legged-navigation-runtime | 脱敏重构：定位恢复核心 + 单元测试 | ▶ recovery_demo |
+| 复合清洁机器人 | CleanRobot-Sim2Real-skill | MuJoCo 仿真，尚未上真机 | — |
+
+**跨平台空间运行时**
+
+- [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine) — C++20 空间状态运行时：状态契约、语义 Token、ESN 时序记忆、端侧策略管理与任务编排。
+
+**定位安全与诊断**
+
+- [SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime) — LiDAR 受污染时的定位自救：检测、可信度仲裁、七态状态机、安全速度上限与恢复门控。
+- [SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime) — SLAM/导航诊断 CLI：契约检查、故障图根因排序、下一步低成本排查，输出 JSON/Markdown/Mermaid。
+- [legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state) — 四足混合地形状态契约与安全降级：可通行性评分、风险分级、Normal/ReduceSpeed/HoldPosition。
+
+**多机器人基础设施**
+
+- [swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link) — 弱网自适应通信：Healthy/Constrained/Critical 三态 QoS、时钟偏差估计、关键帧调度。
+- [multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion) — POSIX 共享内存关键帧通道与版本化子图注册表（幂等接收、约束校验、graph_version 递增）。
+
+**学习基线**
+
+- [interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning) — 可中断导航学习：2D 环境行为克隆、DAgger 与中途语言纠正。
+- [terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl) — Go2 + Piper 一体化 RL 脚手架：19 维动作、教师→学生蒸馏、域随机化与延迟模型。
+
+> 标注"脱敏重构"的仓库是过往工程的公开重写，只含可独立测试的核心；完整系统、厂商 SDK 与实机数据不公开。实现状态以各仓库代码、测试与文档为准。
 
 ---
 
 ## 欢迎交流
 
-佛科目前由我个人发起与维护；认同这份愿景、愿意一起长期共建的伙伴，欢迎加入。
+佛科目前由我个人发起与维护；认同这份价值观、愿意一起长期共建的伙伴，欢迎加入。
 
 **My guiding question:**
 
