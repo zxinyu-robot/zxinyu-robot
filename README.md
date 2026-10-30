@@ -54,13 +54,15 @@
 - **实现**：基于几何 SLAM 与传统运动控制，开发基于消息中间件的无 GPS 无人机导航任务执行中间件产品；参与军用飞行器导航模块研发。
 - **结果**：覆盖 AGV、无 GPS 四旋翼、四足及双足等不同形态平台，在弱网、强干扰与室内外混合环境中交付。
 
-**▶ 演示（无 GPS 无人机真机实测，点击封面播放视频）**
+**▶ 演示（点击封面播放）**
 
-[![无人机实测 15 秒](assets/demo/uav_gps_denied_15s_cover.png)](assets/demo/uav_gps_denied_15s.mp4)
-[![无人机片段 10–50 秒](assets/demo/uav_clip_10_50_cover.png)](assets/demo/uav_clip_10_50.mp4)
-[![无人机片段 105–126 秒](assets/demo/uav_clip_105_126_cover.png)](assets/demo/uav_clip_105_126.mp4)
+**军工飞行器导航模块**（真机实测）
 
-<img src="assets/demo/IMG_7063.jpg" width="300"> <img src="assets/demo/IMG_7156.jpg" width="420">
+[![军工飞行器导航模块](assets/demo/uav_gps_denied_15s_cover.png)](assets/demo/uav_gps_denied_15s.mp4)
+
+**无 GPS 无人机黑暗环境自主巡检流程**（含现场界面与巡检片段）
+
+[![黑暗环境自主巡检](assets/demo/uav_dark_patrol_cover.png)](assets/demo/uav_dark_patrol.mp4)
 
 ### 案例 B · 动态环境下的足式机器人自主导航
 

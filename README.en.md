@@ -54,13 +54,15 @@ Three representative work stages; commercial work, production work, and personal
 - **Approach**: Built a GPS-denied UAV navigation task-execution middleware product on message-oriented middleware, on geometric SLAM and classical motion control; participated in military aircraft navigation module R&D.
 - **Outcome**: Delivered across AGV, GPS-denied quadrotor, quadrupedal and bipedal platforms in weak-network, strong-interference, mixed indoor-outdoor environments.
 
-**▶ Demo (GPS-denied UAV, real-robot — click cover to play)**
+**▶ Demo (click cover to play)**
 
-[![UAV real-robot 15s](assets/demo/uav_gps_denied_15s_cover.png)](assets/demo/uav_gps_denied_15s.mp4)
-[![UAV clip 10–50s](assets/demo/uav_clip_10_50_cover.png)](assets/demo/uav_clip_10_50.mp4)
-[![UAV clip 105–126s](assets/demo/uav_clip_105_126_cover.png)](assets/demo/uav_clip_105_126.mp4)
+**Military aircraft navigation module** (real-robot)
 
-<img src="assets/demo/IMG_7063.jpg" width="300"> <img src="assets/demo/IMG_7156.jpg" width="420">
+[![Military aircraft navigation module](assets/demo/uav_gps_denied_15s_cover.png)](assets/demo/uav_gps_denied_15s.mp4)
+
+**GPS-denied UAV autonomous inspection in darkness** (field UI + inspection clips)
+
+[![Autonomous inspection in darkness](assets/demo/uav_dark_patrol_cover.png)](assets/demo/uav_dark_patrol.mp4)
 
 ### Case B · Legged robot autonomous navigation in dynamic environments
 
