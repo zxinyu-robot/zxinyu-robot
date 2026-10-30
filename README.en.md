@@ -56,13 +56,9 @@ Three representative work stages; commercial work, production work, and personal
 
 **▶ Demo (click cover to play)**
 
-**Military aircraft navigation module** (real-robot)
-
-[![Military aircraft navigation module](assets/demo/uav_gps_denied_15s_cover.png)](assets/demo/uav_gps_denied_15s.mp4)
-
-**GPS-denied UAV autonomous inspection in darkness** (field UI + inspection clips)
-
-[![Autonomous inspection in darkness](assets/demo/uav_dark_patrol_cover.png)](assets/demo/uav_dark_patrol.mp4)
+| Military aircraft navigation module (sanitized simulator showcase) | GPS-denied UAV autonomous inspection in darkness |
+| --- | --- |
+| [![Military aircraft navigation module](assets/demo/uav_gps_denied_15s_cover.png)](assets/demo/uav_gps_denied_15s.mp4) | [![Autonomous inspection in darkness](assets/demo/uav_dark_patrol_cover.png)](assets/demo/uav_dark_patrol.mp4) |
 
 ### Case B · Legged robot autonomous navigation in dynamic environments
 
@@ -78,8 +74,6 @@ Three representative work stages; commercial work, production work, and personal
 <img src="assets/demo/54.jpg" width="360"> <img src="assets/demo/55.jpg" width="360">
 
 <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="560">
-
-<img src="assets/demo/28.jpg" width="480">
 
 ### Case C · Spatial state and intelligent system interaction
 

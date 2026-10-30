@@ -56,13 +56,9 @@
 
 **▶ 演示（点击封面播放）**
 
-**军工飞行器导航模块**（真机实测）
-
-[![军工飞行器导航模块](assets/demo/uav_gps_denied_15s_cover.png)](assets/demo/uav_gps_denied_15s.mp4)
-
-**无 GPS 无人机黑暗环境自主巡检流程**（含现场界面与巡检片段）
-
-[![黑暗环境自主巡检](assets/demo/uav_dark_patrol_cover.png)](assets/demo/uav_dark_patrol.mp4)
+| 军工飞行器导航模块（脱敏模拟器展示） | 无 GPS 无人机黑暗环境自主巡检流程 |
+| --- | --- |
+| [![军工飞行器导航模块](assets/demo/uav_gps_denied_15s_cover.png)](assets/demo/uav_gps_denied_15s.mp4) | [![黑暗环境自主巡检](assets/demo/uav_dark_patrol_cover.png)](assets/demo/uav_dark_patrol.mp4) |
 
 ### 案例 B · 动态环境下的足式机器人自主导航
 
@@ -78,8 +74,6 @@
 <img src="assets/demo/54.jpg" width="360"> <img src="assets/demo/55.jpg" width="360">
 
 <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="560">
-
-<img src="assets/demo/28.jpg" width="480">
 
 ### 案例 C · 空间状态与智能系统交互
 
