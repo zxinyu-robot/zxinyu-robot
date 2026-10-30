@@ -1,4 +1,4 @@
-# Hi, I'm Xinyu Zeng（曾欣宇）👋
+# Hi, I'm Xinyu Zeng 👋
 
 ### Robotics & Spatial Intelligence · Reliable Autonomy · Multi-Agent Coordination · Sociotechnical Systems
 
@@ -24,7 +24,7 @@ Fork，意为从既有系统中分支、继承并持续演进。我致力于将�
 
 技术的价值，不止于能力边界的拓展，更在于对**运行边界、失效边界与责任边界**的清晰认知——这正是空间运行时让机器人安全、可信、可持续运行的承诺。
 
-## 工程原则
+## 工程背景和原则
 
 我具有通信工程背景，工程实践覆盖 AGV、无 GPS 无人机及四足、双足机器人，常面临弱网、强干扰与室内外混合等复杂运行环境。基于真实机器人系统，我研究自主智能体在不确定环境中的可信状态管理、行为执行与故障恢复，并进一步探索这些机制在异构多智能体协同，以及人机共享环境中的权限、风险与责任治理。
 
@@ -53,13 +53,39 @@ Fork，意为从既有系统中分支、继承并持续演进。我致力于将�
 
 ## 🧩 Selected Projects
 
+> 公开仓库均可构建、可测试；标注 ▶ 的附可运行 demo（终端回放）。可视化 demo 陆续补入。
+
+**▶ Demo 速览（终端回放）**
+
+| 仓库 | 运行命令 | 展示内容 |
+|---|---|---|
+| legged-navigation-runtime | `./build/default/recovery_demo` | 定位失效 → 搜索 → 配准 → 恢复 |
+| swarm-spatial-link | `./build/default/weak_link_demo` | 弱网三态 QoS 自适应 |
+| fork-spatial-runtime | `./build/default/examples/cpp/runtime_demo` | 图事务与状态生命周期 |
+| multi-robot-map-fusion | `./build/default/fusion_demo` | 共享内存 + 子图登记 |
+| legged-terrain-state | `./build/default/terrain_demo` | 地形风险分级与安全模式 |
+| SlamDoctor-Runtime | `slam-doctor diagnose examples/nav_oscillation.jsonl` | 八类症状根因排查 |
+
+示例（legged-navigation-runtime，合成回放）：
+
+```text
+$ ./build/default/recovery_demo
+relocalization replay
+  t= 100 ms  tracking -> tracking   action=hold_motion
+  t= 600 ms  tracking -> searching   action=search_candidate
+  t= 800 ms  searching -> aligning   action=run_fine_alignment
+  t=1100 ms  aligning -> verifying   action=reset_localizer
+  t=1400 ms  verifying -> tracking   action=resume_navigation
+synthetic latency window: samples=10 p50=17.2 ms p95=24.8 ms max=24.8 ms
+```
+
 **三个平台的端侧系统**（每个平台对应一个仓库）
 
-| 平台 | 仓库 | 当前验证程度 |
-|---|---|---|
-| Unitree Go2 四足 | quadruped-crossfloor-nav-ws | 云端仿真跨楼层闭环 11/11；真机在线建图与规划 |
-| Unitree G1 / H2 双足 | legged-navigation-runtime | 脱敏重构：定位恢复核心 + 单元测试 |
-| 复合清洁机器人（移动底盘 + xArm） | CleanRobot-Sim2Real-skill | MuJoCo 仿真，尚未上真机 |
+| 平台 | 仓库 | 当前验证程度 | Demo |
+|---|---|---|---|
+| Unitree Go2 四足 | quadruped-crossfloor-nav-ws | 云端仿真跨楼层闭环 11/11；真机在线建图与规划 | ▶ [3D 在线演示](https://zxinyu-robot.github.io/musical-robot.github.io/dog/) |
+| Unitree G1 / H2 双足 | legged-navigation-runtime | 脱敏重构：定位恢复核心 + 单元测试 | ▶ recovery_demo |
+| 复合清洁机器人（移动底盘 + xArm） | CleanRobot-Sim2Real-skill | MuJoCo 仿真，尚未上真机 | — |
 
 - **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX 的端侧自主导航闭环（ROS 2，跨楼层）。行为树编排、任务运行时和指令转发为自研；定位（Super-LIO）、全局 / 局部规划（PCT / SCAN）在开源组件上做工程集成。跨楼层闭环已在云端仿真中跑通（多楼层任务 11/11 成功），真机上在线建图与规划已运行；正在接入 ForkSpatial-Runtime-Engine 的状态契约与 legged-navigation-runtime 的恢复插件，用故障注入做端到端演练。
 - **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — G1 / H2 双足端侧自主导航闭环的脱敏重构，公开的是定位失效恢复部分：定位健康度与重定位状态机（Tracking → Searching → Aligning → Verifying → SafeStop）、配准门控、超时保护和 P50 / P95 延迟统计。核心无 ROS 依赖；`RecoveryPlugin` 已作为恢复插件接入 quadruped-crossfloor-nav-ws，双足、四足共用同一套恢复逻辑。

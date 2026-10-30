@@ -1,4 +1,4 @@
-# Hi, I'm Xinyu Zeng（曾欣宇）👋
+# Hi, I'm Xinyu Zeng 👋
 
 ### Robotics & Spatial Intelligence · Reliable Autonomy · Multi-Agent Coordination · Sociotechnical Systems
 
@@ -24,7 +24,7 @@ Fork means branching from existing systems, inheriting from them, and continuing
 
 The value of technology lies not only in expanding the boundaries of capability, but also in a clear understanding of operational boundaries, failure boundaries, and accountability boundaries — this is the promise of a spatial runtime that keeps robots safe, trustworthy, and sustainable.
 
-## Engineering Principles
+## Engineering Background and Principles
 
 I have a communications engineering background. My engineering practice spans AGVs, GPS-denied UAVs, and quadrupedal / bipedal robots, often facing complex operating environments such as weak networks, strong interference, and mixed indoor-outdoor settings. Grounded in real robot systems, I study how autonomous agents manage trustworthy state, behavior execution, and failure recovery under uncertainty, and further explore how these mechanisms extend to heterogeneous multi-agent coordination and to the governance of authority, risk, and accountability in human-robot shared environments.
 
@@ -53,13 +53,39 @@ A self-developed adaptive communication and versioned submap-fusion middleware f
 
 ## 🧩 Selected Projects
 
+> All public repositories are buildable and testable; repos marked ▶ ship a runnable demo (terminal replay). Visual demos are being added progressively.
+
+**▶ Demo Quick View (terminal replay)**
+
+| Repository | Command | Shows |
+|---|---|---|
+| legged-navigation-runtime | `./build/default/recovery_demo` | localization loss → search → alignment → recovery |
+| swarm-spatial-link | `./build/default/weak_link_demo` | adaptive QoS across three link states |
+| fork-spatial-runtime | `./build/default/examples/cpp/runtime_demo` | graph transactions and state lifecycle |
+| multi-robot-map-fusion | `./build/default/fusion_demo` | shared memory + submap registration |
+| legged-terrain-state | `./build/default/terrain_demo` | terrain risk grading and safety modes |
+| SlamDoctor-Runtime | `slam-doctor diagnose examples/nav_oscillation.jsonl` | root-cause triage of eight symptom classes |
+
+Sample (legged-navigation-runtime, synthetic replay):
+
+```text
+$ ./build/default/recovery_demo
+relocalization replay
+  t= 100 ms  tracking -> tracking   action=hold_motion
+  t= 600 ms  tracking -> searching   action=search_candidate
+  t= 800 ms  searching -> aligning   action=run_fine_alignment
+  t=1100 ms  aligning -> verifying   action=reset_localizer
+  t=1400 ms  verifying -> tracking   action=resume_navigation
+synthetic latency window: samples=10 p50=17.2 ms p95=24.8 ms max=24.8 ms
+```
+
 **End-side systems for three platforms** (one repository per platform)
 
-| Platform | Repository | Current verification level |
-|---|---|---|
-| Unitree Go2 quadruped | quadruped-crossfloor-nav-ws | Cloud simulation cross-floor loop 11/11; real-robot online mapping and planning |
-| Unitree G1 / H2 biped | legged-navigation-runtime | Sanitized rewrite: localization recovery core + unit tests |
-| Compound cleaning robot (mobile base + xArm) | CleanRobot-Sim2Real-skill | MuJoCo simulation, not yet on real robots |
+| Platform | Repository | Current verification level | Demo |
+|---|---|---|---|
+| Unitree Go2 quadruped | quadruped-crossfloor-nav-ws | Cloud simulation cross-floor loop 11/11; real-robot online mapping and planning | ▶ [3D online demo](https://zxinyu-robot.github.io/musical-robot.github.io/dog/) |
+| Unitree G1 / H2 biped | legged-navigation-runtime | Sanitized rewrite: localization recovery core + unit tests | ▶ recovery_demo |
+| Compound cleaning robot (mobile base + xArm) | CleanRobot-Sim2Real-skill | MuJoCo simulation, not yet on real robots | — |
 
 - **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — An end-side autonomous navigation loop for Go2 + Livox Mid-360 + Orin NX (ROS 2, cross-floor). Behavior-tree orchestration, task runtime, and command forwarding are self-developed; localization (Super-LIO) and global / local planning (PCT / SCAN) are engineering integrations on open-source components. The cross-floor loop has been completed in cloud simulation (multi-floor tasks 11/11 success), and online mapping and planning have run on the real robot; it is being integrated with ForkSpatial-Runtime-Engine's state contracts and legged-navigation-runtime's recovery plugin for end-to-end drills with fault injection.
 - **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — A sanitized rewrite of the G1 / H2 biped end-side autonomous navigation loop, exposing the localization failure recovery part: localization health and relocalization state machine (Tracking → Searching → Aligning → Verifying → SafeStop), registration gating, timeout protection, and P50 / P95 latency statistics. The core has no ROS dependency; `RecoveryPlugin` is integrated into quadruped-crossfloor-nav-ws, so bipeds and quadrupeds share the same recovery logic.
