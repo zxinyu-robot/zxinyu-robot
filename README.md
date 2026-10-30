@@ -60,7 +60,7 @@
 | --- | --- |
 | [![军工飞行器导航模块](assets/demo/uav_gps_denied_15s_cover.png)](assets/demo/uav_gps_denied_15s.mp4) | [![黑暗环境自主巡检](assets/demo/uav_dark_patrol_cover.png)](assets/demo/uav_dark_patrol.mp4) |
 
-### 案例 B · 动态环境下的足式机器人自主导航
+### 案例 B · 动态环境下的足式机器人跨楼层长航时自主导航
 
 - **背景**：动态非结构化环境中的四足机器人长航时、跨楼层目标导航。
 - **职责**：端边协同资源分配、自研导航中间件、关键算法场景适配优化。
