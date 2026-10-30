@@ -54,6 +54,16 @@
 - **实现**：基于几何 SLAM 与传统运动控制，开发基于消息中间件的无 GPS 无人机导航任务执行中间件产品；参与军用飞行器导航模块研发。
 - **结果**：覆盖 AGV、无 GPS 四旋翼、四足及双足等不同形态平台，在弱网、强干扰与室内外混合环境中交付。
 
+**▶ 演示（无 GPS 无人机真机实测）**
+
+<video src="assets/demo/uav_gps_denied_15s.mp4" controls width="560"></video>
+
+<video src="assets/demo/uav_clip_10_50.mp4" controls width="560"></video>
+
+<video src="assets/demo/uav_clip_105_126.mp4" controls width="560"></video>
+
+<img src="assets/demo/IMG_7063.jpg" width="300"> <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="480">
+
 ### 案例 B · 动态环境下的足式机器人自主导航
 
 - **背景**：动态非结构化环境中的四足机器人长航时、跨楼层目标导航。
@@ -61,12 +71,24 @@
 - **实现**：构建端边协同导航中间件，统一定位状态、任务契约、规划接口与故障恢复语义。
 - **结果**：跨楼层闭环云端仿真 11/11 通过，真机在线建图与规划已运行（对应 [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)）。
 
+**▶ 演示（四足跨楼层 / SLAM 导航可视化）**
+
+<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="560">
+
+<img src="assets/demo/IMG_7692.jpg" width="420"> <img src="assets/demo/54.jpg" width="320"> <img src="assets/demo/55.jpg" width="320">
+
+<img src="assets/demo/28.jpg" width="480"> <img src="assets/demo/IMG_7156.jpg" width="420">
+
 ### 案例 C · 空间状态与智能系统交互
 
 - **背景**：机器人的空间状态如何被上层智能体与世界模型可靠消费。
 - **职责**：三空间认知框架的工程化、世界空间状态数据分发服务设计。
 - **实现**：自研基于足式机器人世界空间状态的数据分发服务中间件，与上游世界模型进行异步状态任务导航行为交互。
 - **结果**：公开重构为可构建、可测试的核心——状态契约、定位恢复、地形契约、弱网协同、共享内存融合、只读诊断。
+
+**▶ 演示（定位恢复状态机）**
+
+<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png" width="560">
 
 ---
 

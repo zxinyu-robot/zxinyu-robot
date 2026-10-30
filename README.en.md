@@ -54,6 +54,16 @@ Three representative work stages; commercial work, production work, and personal
 - **Approach**: Built a GPS-denied UAV navigation task-execution middleware product on message-oriented middleware, on geometric SLAM and classical motion control; participated in military aircraft navigation module R&D.
 - **Outcome**: Delivered across AGV, GPS-denied quadrotor, quadrupedal and bipedal platforms in weak-network, strong-interference, mixed indoor-outdoor environments.
 
+**▶ Demo (GPS-denied UAV, real-robot)**
+
+<video src="assets/demo/uav_gps_denied_15s.mp4" controls width="560"></video>
+
+<video src="assets/demo/uav_clip_10_50.mp4" controls width="560"></video>
+
+<video src="assets/demo/uav_clip_105_126.mp4" controls width="560"></video>
+
+<img src="assets/demo/IMG_7063.jpg" width="300"> <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="480">
+
 ### Case B · Legged robot autonomous navigation in dynamic environments
 
 - **Background**: Long-duration, cross-floor goal navigation for quadrupedal robots in dynamic, unstructured environments.
@@ -61,12 +71,24 @@ Three representative work stages; commercial work, production work, and personal
 - **Approach**: Built edge-cloud navigation middleware, unifying localization state, task contracts, planning interfaces, and fault-recovery semantics.
 - **Outcome**: Cross-floor loop passed cloud simulation 11/11; real-robot online mapping and planning running (see [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)).
 
+**▶ Demo (quadruped cross-floor / SLAM visualization)**
+
+<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="560">
+
+<img src="assets/demo/IMG_7692.jpg" width="420"> <img src="assets/demo/54.jpg" width="320"> <img src="assets/demo/55.jpg" width="320">
+
+<img src="assets/demo/28.jpg" width="480"> <img src="assets/demo/IMG_7156.jpg" width="420">
+
 ### Case C · Spatial state and intelligent system interaction
 
 - **Background**: How robot spatial state can be reliably consumed by upstream agents and world models.
 - **Role**: Engineering the three-space framework; designing world-state data distribution.
 - **Approach**: Built a data-distribution middleware for the world-space state produced by legged robots, enabling asynchronous state-task navigation behavior interaction with upstream world models.
 - **Outcome**: Publicly rewritten into buildable, testable cores — state contracts, localization recovery, terrain contracts, weak-network coordination, shared-memory fusion, read-only diagnostics.
+
+**▶ Demo (localization recovery state machine)**
+
+<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png" width="560">
 
 ---
 
