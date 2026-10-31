@@ -81,37 +81,19 @@ Recent work:
 
 **Reliable autonomous navigation**: the real-robot cross-floor navigation loop is complete; current focus is aligning localization state, task contracts, planning interfaces, and failure-recovery semantics.
 
-Real-robot validation of cross-floor goal navigation.
-
-> 🔗 [GitHub repository](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)
-
-The metric foundation for localization state — where state comes from and which tile it lands on.
-
-> 🔗 [GitHub repository](https://github.com/zxinyu-robot/spatial-map-foundation)
-
-The runtime vehicle for task contracts and failure-recovery semantics.
-
-> 🔗 [GitHub repository](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+- Real-robot validation of cross-floor goal navigation. [🔗 GitHub repository](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)
+- The metric foundation for localization state — where state comes from and which tile it lands on. [🔗 GitHub repository](https://github.com/zxinyu-robot/spatial-map-foundation)
+- The runtime vehicle for task contracts and failure-recovery semantics. [🔗 GitHub repository](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
 
 **Reusable spatial runtime middleware**: making state's source, version, confidence, validity, and failure semantics explicit to downstream modules.
 
-Managing the source, version, and invalidation semantics of state.
-
-> 🔗 [GitHub repository](https://github.com/zxinyu-robot/spatial-map-foundation)
-
-Making state explicitly consumable by downstream planning and execution.
-
-> 🔗 [GitHub repository](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+- Managing the source, version, and invalidation semantics of state. [🔗 GitHub repository](https://github.com/zxinyu-robot/spatial-map-foundation)
+- Making state explicitly consumable by downstream planning and execution. [🔗 GitHub repository](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
 
 **Multi-robot coordination under weak networks**: adaptive communication and versioned submap fusion; how partial information, latency, and inconsistency affect coordination.
 
-Adaptive communication strategy under weak networks.
-
-> 🔗 [GitHub repository](https://github.com/zxinyu-robot/swarm-spatial-link)
-
-The data path for versioned submap fusion.
-
-> 🔗 [GitHub repository](https://github.com/zxinyu-robot/multi-robot-map-fusion)
+- Adaptive communication strategy under weak networks. [🔗 GitHub repository](https://github.com/zxinyu-robot/swarm-spatial-link)
+- The data path for versioned submap fusion. [🔗 GitHub repository](https://github.com/zxinyu-robot/multi-robot-map-fusion)
 ---
 
 ## Open Source Projects
