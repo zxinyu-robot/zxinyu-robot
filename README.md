@@ -79,9 +79,9 @@
 
 近期工作：
 
-- **可靠自主导航**：四足跨楼层目标导航真机闭环已完成，当前对齐定位状态、任务契约、规划接口与故障恢复语义。
-- **可复用空间运行时中间件**：让状态的来源、版本、置信度、有效期和失败语义被下游规划与执行模块明确理解。
-- **弱网下的多机协同**：自适应通信与版本化子图融合，研究局部信息、通信延迟与数据不一致如何影响协同。
+- **可靠自主导航**：四足跨楼层目标导航真机闭环已完成（[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)），当前对齐定位状态（[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)）、任务契约与故障恢复语义（[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)），并在 [legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime) 与 [SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime) 落地定位失效恢复与污染自救。
+- **可复用空间运行时中间件**：让状态的来源、版本、置信度、有效期和失败语义被下游规划与执行模块明确理解——[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation) 管"状态从哪来、落到哪个瓦片"，[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine) 管"状态如何被决策消费"。
+- **弱网下的多机协同**：自适应通信（[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)）与版本化子图融合（[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)），研究局部信息、通信延迟与数据不一致如何影响协同。
 
 ---
 
