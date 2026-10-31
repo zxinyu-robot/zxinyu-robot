@@ -53,9 +53,11 @@ Three representative work stages; commercial work, production work, and personal
 - **Approach**: Built a data-distribution middleware for the world-space state produced by legged robots, enabling asynchronous state-task navigation behavior interaction with upstream world models.
 - **Outcome**: Publicly rewritten into buildable, testable cores — state contracts, localization recovery, terrain contracts, weak-network coordination, shared-memory fusion, read-only diagnostics.
 
-**▶ Demo (localization recovery state machine)**
+**▶ Demo (spatial state interaction sequence)**
 
-<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png" width="560">
+<small>Full sequence of state-contract and task interaction; click to enlarge.</small>
+
+[<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png" width="360">](https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png)
 
 ---
 
