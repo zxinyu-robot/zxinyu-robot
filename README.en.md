@@ -14,6 +14,12 @@
 >
 > As my practice extended from low-level state estimation and system implementation to the interaction between spatial state and upstream agents, my focus shifted from individual algorithms to the organizational mechanisms of intelligent systems: **how to understand and manage spatial state, organize intelligent behavior, and enable different agents to coordinate reliably under uncertainty.**
 
+**Vision · Cross-embodiment urban autonomy**
+
+![Cross-embodiment urban autonomy (concept render)](assets/vision/cross-embodiment-nav-vision.png)
+
+> Quadruped, biped, wheeled, and aerial platforms navigating the same urban road autonomously. *Concept render, backed by the runnable evidence in Selected Engineering Work below.*
+
 ---
 
 ## Selected Engineering Work
