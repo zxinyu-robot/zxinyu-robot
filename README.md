@@ -42,9 +42,13 @@
 
 **▶ 演示**
 
-| 四足跨楼层导航 | SLAM 导航可视化 | 点云建图 |
+| 四足跨楼层导航 |
+| --- |
+| <img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="480"> |
+
+| SLAM 导航可视化 | 点云建图 | 点云建图全景 |
 | --- | --- | --- |
-| <img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="400"> | <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="400"> | <img src="assets/demo/54.jpg" width="400"> |
+| <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="380"> | <img src="assets/demo/54.jpg" width="380"> | <img src="assets/demo/pointcloud-pano.png" width="380"> |
 
 ### 案例 C · 空间状态与智能系统交互
 

@@ -42,9 +42,13 @@ Three representative work stages; commercial work, production work, and personal
 
 **▶ Demo**
 
-| Quadruped cross-floor navigation | SLAM visualization | Point-cloud mapping |
+| Quadruped cross-floor navigation |
+| --- |
+| <img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="480"> |
+
+| SLAM visualization | Point-cloud mapping | Point-cloud panorama |
 | --- | --- | --- |
-| <img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="400"> | <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="400"> | <img src="assets/demo/54.jpg" width="400"> |
+| <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="380"> | <img src="assets/demo/54.jpg" width="380"> | <img src="assets/demo/pointcloud-pano.png" width="380"> |
 
 ### Case C · Spatial state and intelligent system interaction
 
