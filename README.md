@@ -44,7 +44,7 @@
 
 <p align="center"><img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="480"></p>
 
-| SLAM 导航可视化 | 点云建图 | 点云建图全景 |
+| 端边协同地图拼接 | 在线实时体素 | 在线实时局部点云 |
 | --- | --- | --- |
 | <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="380"> | <img src="assets/demo/54.jpg" width="380"> | <img src="assets/demo/pointcloud-pano.png" width="380"> |
 
