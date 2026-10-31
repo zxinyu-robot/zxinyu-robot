@@ -14,12 +14,6 @@
 >
 > 随着实践从底层状态估计与系统实现，逐步延伸至空间状态和上层智能体的交互，我的关注点也从单一算法转向智能系统的组织机制：**如何理解和管理空间状态、组织智能行为，并推动不同主体在不确定环境中可靠协同。**
 
-**Fork愿景｜跨形态城市自主导航**
-
-![跨形态城市自主导航（概念渲染）](assets/vision/cross-embodiment-nav-vision.png)
-
-> 四足、双足、轮式与飞行平台在同一条城市道路上自主导航。*概念渲染图，对应下方 Selected Engineering Work 中的真实可运行证据。*
-
 ---
 
 ## Selected Engineering Work
@@ -79,9 +73,12 @@
 
 近期工作：
 
-- **可靠自主导航**：四足跨楼层目标导航真机闭环已完成，已对齐定位状态、任务契约、规划接口与故障恢复语义。[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws) · [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation) · [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
-- **可复用空间运行时中间件**：让状态的来源、版本、置信度、有效期和失败语义被下游规划与执行模块明确理解。[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)（状态从哪来）· [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)（状态如何被消费）
-- **弱网下的多机协同**：自适应通信与版本化子图融合，研究局部信息、通信延迟与数据不一致如何影响协同。[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link) · [multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)
+- **可靠自主导航**：四足跨楼层目标导航真机闭环已完成，已对齐定位状态、任务契约、规划接口与故障恢复语义。
+  [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws) · [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation) · [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+- **可复用空间运行时中间件**：让状态的来源、版本、置信度、有效期和失败语义被下游规划与执行模块明确理解。
+  [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)（状态从哪来）· [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)（状态如何被消费）
+- **弱网下的多机协同**：自适应通信与版本化子图融合，研究局部信息、通信延迟与数据不一致如何影响协同。
+  [swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link) · [multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)
 
 ---
 
@@ -129,6 +126,12 @@ Fork 不是一套要与现有系统竞争的技术路线，而是我在长期工
 > Fork，意为从既有系统中派生能力，通过拆分、组合、替换与演进，让技术能力具备可解释、可验证、可回滚的特性。
 >
 > 工程主张：**可解释 · 可验证 · 可替换 · 可回滚 · 可靠而不加害**
+
+**Fork愿景｜跨形态城市自主导航**
+
+![跨形态城市自主导航（概念渲染）](assets/vision/cross-embodiment-nav-vision.png)
+
+> 四足、双足、轮式与飞行平台在同一条城市道路上自主导航。*概念渲染图，对应上方 Selected Engineering Work 中的真实可运行证据。*
 
 ---
 
