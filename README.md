@@ -74,7 +74,7 @@
 近期工作：
 
 - **可靠自主导航**：四足跨楼层目标导航真机闭环已完成，已对齐定位状态、任务契约、规划接口与故障恢复语义。
-  [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws) · [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation) · [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+  **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws) · [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation) · [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
 - **可复用空间运行时中间件**：让状态的来源、版本、置信度、有效期和失败语义被下游规划与执行模块明确理解。
   [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)（状态从哪来）· [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)（状态如何被消费）
 - **弱网下的多机协同**：自适应通信与版本化子图融合，研究局部信息、通信延迟与数据不一致如何影响协同。
