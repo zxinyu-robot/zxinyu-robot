@@ -16,19 +16,6 @@
 
 ---
 
-## Engineering Capabilities
-
-按完整工程链路的组织能力划分，而非技术栈罗列：
-
-| 能力领域 | 内容 |
-| --- | --- |
-| 机器人自主系统 | SLAM、导航、规划控制、行为调度、故障恢复 |
-| 中间件与系统架构 | 消息通信、DDS、任务生命周期、状态管理、多机协同 |
-| 嵌入式与端边协同 | Linux、C++、嵌入式部署、边端资源调度、系统集成 |
-| 空间智能与交互 | 多空间状态表达、世界状态分发、模型与机器人异步交互 |
-
----
-
 ## Selected Engineering Work
 
 三个代表性工作阶段；商业项目、实际工作与个人开源重构分开表述。
@@ -72,7 +59,7 @@
 
 ---
 
-## Current Focus
+## Current Work
 
 统一方向：**真实环境中的自主智能系统及其组织机制**。
 
@@ -89,6 +76,46 @@
 - **弱网下的多机协同**：自适应通信与版本化子图融合，研究局部信息、通信延迟与数据不一致如何影响协同。
 
 ---
+
+## Open Source Projects
+
+
+> 按系统角色分层，而非仓库数量罗列。公开仓库均可构建、可测试；标注 ▶ 的附可运行 demo。
+
+### 核心工程载体
+
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — C++20 空间状态运行时：状态契约、语义 Token、ESN 时序记忆、端侧策略管理与任务编排。**已实现**：状态契约（版本链、定位健康度、执行租约、准入判定、故障注入）；**尚未实现**：弱网传输调度、DDS 协议生成。它不是成熟产品，是核心理念与系统架构的长期载体。
+
+### 真实系统验证
+
+- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX 端侧跨楼层导航闭环，验证状态契约、任务运行时与故障恢复在真实机器人上的运行。
+
+### 可复用能力
+
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — 定位失效恢复状态机（Tracking → Searching → Aligning → Verifying → SafeStop），核心无 ROS 依赖。▶ `recovery_demo`
+- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — SLAM/导航诊断 CLI：契约检查、故障图根因排序、下一步低成本排查。▶ `slam-doctor diagnose examples/nav_oscillation.jsonl`
+- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** — POSIX 共享内存关键帧通道与版本化子图注册表。▶ `fusion_demo`
+- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** — 弱网自适应通信：Healthy/Constrained/Critical 三态 QoS、时钟偏差估计、关键帧调度。▶ `weak_link_demo`
+- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — 四足混合地形状态契约与安全降级。▶ `terrain_demo`
+- **[SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime)** — LiDAR 受污染时的定位自救：检测、可信度仲裁、七态状态机、安全速度上限与恢复门控。
+
+### 学习基线
+
+- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — 可中断导航学习：2D 环境行为克隆、DAgger 与中途语言纠正。
+- **[terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl)** — Go2 + Piper 一体化 RL 脚手架：19 维动作、教师→学生蒸馏、域随机化与延迟模型。
+
+**▶ Demo 速览（终端回放）**
+
+| 仓库 | 运行命令 | 展示内容 |
+| --- | --- | --- |
+| legged-navigation-runtime | `./build/default/recovery_demo` | 定位失效 → 搜索 → 配准 → 恢复 |
+| swarm-spatial-link | `./build/default/weak_link_demo` | 弱网三态 QoS 自适应 |
+| fork-spatial-runtime | `./build/default/examples/cpp/runtime_demo` | 图事务与状态生命周期 |
+| multi-robot-map-fusion | `./build/default/fusion_demo` | 共享内存 + 子图登记 |
+| legged-terrain-state | `./build/default/terrain_demo` | 地形风险分级与安全模式 |
+| SlamDoctor-Runtime | `slam-doctor diagnose examples/nav_oscillation.jsonl` | 八类症状根因排查 |
+
+> 标注"脱敏重构"的仓库是过往工程的公开重写，只含可独立测试的核心；完整系统、厂商 SDK 与实机数据不公开。实现状态以各仓库代码、测试与文档为准。
 
 ## Fork · Engineering Philosophy
 
@@ -184,56 +211,21 @@ How should task authority, human intervention, escalation rules and accountabili
 
 ---
 
-## Open Source Projects
+## Community & Collaboration
 
-> 公开仓库均可构建、可测试；标注 ▶ 的附可运行 demo。商业项目与生产系统不公开，此处只放可独立测试的核心重构。
+佛科由我个人发起与维护。比起 Stars，我更看重有人真正使用、讨论、参与我的工作。
 
-**▶ Demo 速览（终端回放）**
+**欢迎通过以下方式参与：**
 
-| 仓库 | 运行命令 | 展示内容 |
-| --- | --- | --- |
-| legged-navigation-runtime | `./build/default/recovery_demo` | 定位失效 → 搜索 → 配准 → 恢复 |
-| swarm-spatial-link | `./build/default/weak_link_demo` | 弱网三态 QoS 自适应 |
-| fork-spatial-runtime | `./build/default/examples/cpp/runtime_demo` | 图事务与状态生命周期 |
-| multi-robot-map-fusion | `./build/default/fusion_demo` | 共享内存 + 子图登记 |
-| legged-terrain-state | `./build/default/terrain_demo` | 地形风险分级与安全模式 |
-| SlamDoctor-Runtime | `slam-doctor diagnose examples/nav_oscillation.jsonl` | 八类症状根因排查 |
+- 针对运行时设计提交 **Issue**；
+- 对状态契约、故障恢复机制进行**架构讨论**；
+- 其他机器人平台**接入适配**；
+- 提交**测试、复现实验与文档改进**；
+- 共同研究**异构机器人协同**。
 
-**三个平台的端侧系统**
+**长期身份：**
 
-| 平台 | 仓库 | 当前验证程度 | Demo |
-| --- | --- | --- | --- |
-| Unitree Go2 四足 | quadruped-crossfloor-nav-ws | 云端仿真跨楼层闭环 11/11；真机在线建图与规划 | ▶ 视频见仓库 `docs/media/` |
-| Unitree G1 / H2 双足 | legged-navigation-runtime | 脱敏重构：定位恢复核心 + 单元测试 | ▶ recovery_demo |
-| 复合清洁机器人 | CleanRobot-Sim2Real-skill | MuJoCo 仿真，尚未上真机 | — |
-
-**跨平台空间运行时**
-
-- [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine) — C++20 空间状态运行时：状态契约、语义 Token、ESN 时序记忆、端侧策略管理与任务编排。
-
-**定位安全与诊断**
-
-- [SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime) — LiDAR 受污染时的定位自救：检测、可信度仲裁、七态状态机、安全速度上限与恢复门控。
-- [SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime) — SLAM/导航诊断 CLI：契约检查、故障图根因排序、下一步低成本排查，输出 JSON/Markdown/Mermaid。
-- [legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state) — 四足混合地形状态契约与安全降级：可通行性评分、风险分级、Normal/ReduceSpeed/HoldPosition。
-
-**多机器人基础设施**
-
-- [swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link) — 弱网自适应通信：Healthy/Constrained/Critical 三态 QoS、时钟偏差估计、关键帧调度。
-- [multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion) — POSIX 共享内存关键帧通道与版本化子图注册表（幂等接收、约束校验、graph_version 递增）。
-
-**学习基线**
-
-- [interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning) — 可中断导航学习：2D 环境行为克隆、DAgger 与中途语言纠正。
-- [terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl) — Go2 + Piper 一体化 RL 脚手架：19 维动作、教师→学生蒸馏、域随机化与延迟模型。
-
-> 标注"脱敏重构"的仓库是过往工程的公开重写，只含可独立测试的核心；完整系统、厂商 SDK 与实机数据不公开。实现状态以各仓库代码、测试与文档为准。
-
----
-
-## 欢迎交流
-
-佛科目前由我个人发起与维护；认同这份价值观、愿意一起长期共建的伙伴，欢迎加入。
+> An independent builder and researcher working on reliable autonomy, spatial intelligence infrastructure, and the coordination of intelligent systems.
 
 **My guiding question:**
 

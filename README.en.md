@@ -16,19 +16,6 @@
 
 ---
 
-## Engineering Capabilities
-
-Organized as complete engineering-chain capabilities, not a tech-stack list:
-
-| Capability | Contents |
-| --- | --- |
-| Autonomous robot systems | SLAM, navigation, planning & control, behavior orchestration, fault recovery |
-| Middleware & system architecture | Messaging, DDS, task lifecycle, state management, multi-robot coordination |
-| Embedded & edge-cloud | Linux, C++, embedded deployment, edge resource scheduling, system integration |
-| Spatial intelligence & interaction | Multi-space state representation, world-state distribution, model-robot async interaction |
-
----
-
 ## Selected Engineering Work
 
 Three representative work stages; commercial work, production work, and personal open-source rewrites are stated separately.
@@ -72,7 +59,7 @@ Three representative work stages; commercial work, production work, and personal
 
 ---
 
-## Current Focus
+## Current Work
 
 Unified direction: **autonomous intelligent systems in real environments, and their organization**.
 
@@ -89,6 +76,46 @@ Recent work:
 - **Multi-robot coordination under weak networks**: adaptive communication and versioned submap fusion; how partial information and inconsistency affect coordination.
 
 ---
+
+## Open Source Projects
+
+
+> Organized by system role, not repository count. All public repositories are buildable and testable; repos marked ▶ ship a runnable demo.
+
+### Core engineering vehicle
+
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — C++20 spatial state runtime: state contracts, semantic tokens, ESN temporal memory, end-side policy management, and task orchestration. **Implemented**: state contracts (version chains, localization health, execution leases, admission checks, fault injection); **not yet implemented**: weak-network transport scheduling, DDS protocol generation. It is not a mature product, but the long-term vehicle for the core abstraction and system architecture.
+
+### Real-system validation
+
+- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX end-side cross-floor navigation loop, validating how state contracts, task runtime, and fault recovery run on real robots.
+
+### Reusable capabilities
+
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — localization-loss recovery state machine (Tracking → Searching → Aligning → Verifying → SafeStop), ROS-free core. ▶ `recovery_demo`
+- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — SLAM/navigation diagnostics CLI: contract checks, fault-graph root-cause ranking, next low-cost probe. ▶ `slam-doctor diagnose examples/nav_oscillation.jsonl`
+- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** — POSIX shared-memory keyframe channel and versioned submap registry. ▶ `fusion_demo`
+- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** — weak-network adaptive communication: Healthy/Constrained/Critical QoS, clock-offset estimation, keyframe scheduling. ▶ `weak_link_demo`
+- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — quadruped mixed-terrain state contracts and safe degradation. ▶ `terrain_demo`
+- **[SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime)** — localization self-rescue under LiDAR pollution: detection, confidence arbitration, seven-state machine, safe speed caps, recovery gating.
+
+### Learning baselines
+
+- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — interruptible navigation learning: behavior cloning, DAgger, mid-trajectory language correction.
+- **[terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl)** — Go2 + Piper integrated RL scaffold: 19-DoF actions, teacher→student distillation, domain randomization, latency modeling.
+
+**▶ Demo Quick View (terminal replay)**
+
+| Repository | Command | Shows |
+| --- | --- | --- |
+| legged-navigation-runtime | `./build/default/recovery_demo` | localization loss → search → alignment → recovery |
+| swarm-spatial-link | `./build/default/weak_link_demo` | adaptive QoS across three link states |
+| fork-spatial-runtime | `./build/default/examples/cpp/runtime_demo` | graph transactions and state lifecycle |
+| multi-robot-map-fusion | `./build/default/fusion_demo` | shared memory + submap registration |
+| legged-terrain-state | `./build/default/terrain_demo` | terrain risk grading and safety modes |
+| SlamDoctor-Runtime | `slam-doctor diagnose examples/nav_oscillation.jsonl` | root-cause triage of eight symptom classes |
+
+> Repositories marked "sanitized rewrite" are public rewrites of past engineering work, containing only independently testable cores; complete systems, vendor SDKs, and real-robot data are not public. Status is subject to each repository's code, tests, and docs.
 
 ## Fork · Engineering Philosophy
 
@@ -180,56 +207,21 @@ How should task authority, human intervention, escalation rules and accountabili
 
 ---
 
-## Open Source Projects
+## Community & Collaboration
 
-> All public repositories are buildable and testable; repos marked ▶ ship a runnable demo. Commercial and production systems are not public — only independently testable core rewrites are listed.
+Fork is initiated and maintained by me personally. More than stars, I value people actually using, discussing, and contributing to my work.
 
-**▶ Demo Quick View (terminal replay)**
+**Ways to participate:**
 
-| Repository | Command | Shows |
-| --- | --- | --- |
-| legged-navigation-runtime | `./build/default/recovery_demo` | localization loss → search → alignment → recovery |
-| swarm-spatial-link | `./build/default/weak_link_demo` | adaptive QoS across three link states |
-| fork-spatial-runtime | `./build/default/examples/cpp/runtime_demo` | graph transactions and state lifecycle |
-| multi-robot-map-fusion | `./build/default/fusion_demo` | shared memory + submap registration |
-| legged-terrain-state | `./build/default/terrain_demo` | terrain risk grading and safety modes |
-| SlamDoctor-Runtime | `slam-doctor diagnose examples/nav_oscillation.jsonl` | root-cause triage of eight symptom classes |
+- Open **issues** on runtime design;
+- Engage in **architecture discussions** on state contracts and failure-recovery mechanisms;
+- **Port and adapt** to other robot platforms;
+- Contribute **tests, reproducible experiments, and documentation improvements**;
+- Collaborate on **heterogeneous robot coordination**.
 
-**End-side systems for three platforms**
+**Long-term identity:**
 
-| Platform | Repository | Current verification level | Demo |
-| --- | --- | --- | --- |
-| Unitree Go2 quadruped | quadruped-crossfloor-nav-ws | Cloud sim cross-floor 11/11; real-robot online mapping & planning | ▶ video in repo `docs/media/` |
-| Unitree G1 / H2 biped | legged-navigation-runtime | Sanitized rewrite: recovery core + unit tests | ▶ recovery_demo |
-| Compound cleaning robot | CleanRobot-Sim2Real-skill | MuJoCo simulation, not on real robots | — |
-
-**Cross-platform spatial runtime**
-
-- [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine) — C++20 spatial state runtime: state contracts, semantic tokens, ESN temporal memory, end-side policy management, task orchestration.
-
-**Localization safety & diagnostics**
-
-- [SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime) — localization self-rescue under LiDAR pollution: detection, confidence arbitration, seven-state machine, safe speed caps, recovery gating.
-- [SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime) — SLAM/navigation diagnostics CLI: contract checks, fault-graph root-cause ranking, next low-cost probe; JSON/Markdown/Mermaid output.
-- [legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state) — quadruped mixed-terrain state contracts and safe degradation: traversability scoring, risk grading, Normal/ReduceSpeed/HoldPosition.
-
-**Multi-robot infrastructure**
-
-- [swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link) — weak-network adaptive communication: Healthy/Constrained/Critical QoS, clock-offset estimation, keyframe scheduling.
-- [multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion) — POSIX shared-memory keyframe channel and versioned submap registry (idempotent reception, constraint validation, graph_version increments).
-
-**Learning baselines**
-
-- [interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning) — interruptible navigation learning: behavior cloning, DAgger, mid-trajectory language correction.
-- [terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl) — Go2 + Piper integrated RL scaffold: 19-DoF actions, teacher→student distillation, domain randomization, latency modeling.
-
-> Repositories marked "sanitized rewrite" are public rewrites of past engineering work, containing only independently testable cores; complete systems, vendor SDKs, and real-robot data are not public. Status is subject to each repository's code, tests, and docs.
-
----
-
-## Contact
-
-佛科 (Fork) is currently initiated and maintained by me personally; partners who share these values and wish to build together over the long term are welcome.
+> An independent builder and researcher working on reliable autonomy, spatial intelligence infrastructure, and the coordination of intelligent systems.
 
 **My guiding question:**
 
