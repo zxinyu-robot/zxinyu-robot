@@ -6,12 +6,11 @@
 
 [中文](./README.md) | **English**
 
-> **From Engineering Practice to Systems Thinking**
-> Starting from communications engineering, working on autonomous navigation, embedded systems and middleware for unmanned systems — moving toward the organization and governance of intelligent systems.
-
----
-
 ## About Me
+
+> **From Engineering Practice to Systems Thinking**
+>
+> Starting from a communications engineering background, working on autonomous navigation, embedded systems, and middleware for unmanned systems — moving toward the organization and governance of intelligent systems.
 
 I am a robotics systems engineer with a communications engineering background, working on autonomous robot systems in complex environments, focused on the relationship between **spatial state, intelligent behavior, and system coordination**.
 
