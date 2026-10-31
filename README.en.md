@@ -10,22 +10,9 @@
 
 > **From Engineering Practice to Systems Thinking**
 >
-> Starting from a communications engineering background, working on autonomous navigation, embedded systems, and middleware for unmanned systems — moving toward the organization and governance of intelligent systems.
-
-I am a robotics systems engineer with a communications engineering background, working on autonomous robot systems in complex environments, focused on the relationship between **spatial state, intelligent behavior, and system coordination**.
-
-From GPS-denied and weak-network drones, to legged robots in dynamic environments, to the interaction between spatial state and upstream agents, I have come to see robot intelligence as more than a combination of perception, planning, and control algorithms. It is about **how state is understood, how behavior is organized, and how different agents coordinate under uncertainty**.
-
-My practice can be summarized in three stages:
-
-**Stage 1 · Making robots run autonomously in constrained environments**
-Built autonomous navigation on geometric SLAM, classical path planning, and motion control, orchestrating navigation, task execution, and fault handling through state machines. Covered AGVs, GPS-denied quadrotors, and quadrupedal / bipedal robots; handled GPS-denied, weak-network, strong-interference, and mixed indoor-outdoor environments; completed end-side embedded deployment, system integration, and performance optimization, and developed multi-robot coordination and navigation task execution systems.
-
-**Stage 2 · Making robots complete tasks continuously in dynamic environments**
-For dynamic, unstructured environments, built navigation middleware with edge-cloud resource allocation, solving cross-floor, long-duration goal navigation for quadrupedal robots; focused on state consistency across localization, mapping, planning, and control, and on fault detection, recovery, and continuation after task interruption.
-
-**Stage 3 · From navigation to the organization of spatial state and intelligent behavior**
-A higher-level abstraction emerged from the first two stages: robots should not rely on any single map, planner, or model, but on **organizing relationships between different layers of spatial information** — giving rise to a metric / symbolic / world space cognitive framework, and to explorations of world-state data distribution, version and lifecycle management, and asynchronous interaction between robots and upstream world models.
+> Coming from communications engineering, I have been developing autonomous systems for unmanned systems and robots, covering autonomous navigation, embedded systems, and middleware in GPS-denied, weak-network, and dynamic environments.
+>
+> As my practice extended from low-level state estimation and system implementation to the interaction between spatial state and upstream agents, my focus shifted from individual algorithms to the organizational mechanisms of intelligent systems: **how to understand and manage spatial state, organize intelligent behavior, and enable different agents to coordinate reliably under uncertainty.**
 
 ---
 
