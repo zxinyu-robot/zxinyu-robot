@@ -57,11 +57,13 @@
 - **实现**：自研基于足式机器人世界空间状态的数据分发服务中间件，与上游世界模型进行异步状态任务导航行为交互。
 - **结果**：公开重构为可构建、可测试的核心——状态契约、定位恢复、地形契约、弱网协同、共享内存融合、只读诊断。
 
-**▶ 演示（空间状态交互时序）**
+**▶ 演示（空间状态交互 / 数据流）**
 
-<small>状态契约与任务交互的完整时序，点击查看大图。</small>
+| 状态契约与任务交互时序 | Fork SpatialLink 空间数据流 |
+| --- | --- |
+| [<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png" width="360">](https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png) | [<img src="assets/demo/fork-spatiallink-flow.png" width="360">](assets/demo/fork-spatiallink-flow.png) |
 
-[<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png" width="360">](https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png)
+<small>点击查看大图：左为状态契约与任务交互时序，右为 Fork SpatialLink（FSLP）边端—边侧空间数据流。</small>
 
 ---
 

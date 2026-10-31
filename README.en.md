@@ -57,11 +57,13 @@ Three representative work stages; commercial work, production work, and personal
 - **Approach**: Built a data-distribution middleware for the world-space state produced by legged robots, enabling asynchronous state-task navigation behavior interaction with upstream world models.
 - **Outcome**: Publicly rewritten into buildable, testable cores — state contracts, localization recovery, terrain contracts, weak-network coordination, shared-memory fusion, read-only diagnostics.
 
-**▶ Demo (spatial state interaction sequence)**
+**▶ Demo (spatial state interaction / data flow)**
 
-<small>Full sequence of state-contract and task interaction; click to enlarge.</small>
+| State-contract & task interaction sequence | Fork SpatialLink data flow |
+| --- | --- |
+| [<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png" width="360">](https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png) | [<img src="assets/demo/fork-spatiallink-flow.png" width="360">](assets/demo/fork-spatiallink-flow.png) |
 
-[<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png" width="360">](https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png)
+<small>Click to enlarge: left — state-contract and task interaction sequence; right — Fork SpatialLink (FSLP) edge-to-edge spatial data flow.</small>
 
 ---
 
