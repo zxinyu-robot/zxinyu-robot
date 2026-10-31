@@ -42,9 +42,7 @@ Three representative work stages; commercial work, production work, and personal
 
 **▶ Demo**
 
-| Quadruped cross-floor navigation |
-| --- |
-| <img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="480"> |
+<p align="center"><img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="480"></p>
 
 | SLAM visualization | Point-cloud mapping | Point-cloud panorama |
 | --- | --- | --- |

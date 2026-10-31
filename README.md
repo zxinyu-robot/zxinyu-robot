@@ -42,9 +42,7 @@
 
 **▶ 演示**
 
-| 四足跨楼层导航 |
-| --- |
-| <img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="480"> |
+<p align="center"><img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="480"></p>
 
 | SLAM 导航可视化 | 点云建图 | 点云建图全景 |
 | --- | --- | --- |
