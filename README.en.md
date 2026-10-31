@@ -101,6 +101,7 @@ Recent work:
 ### Real-system validation
 
 - **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX end-side cross-floor navigation loop, validating how state contracts, task runtime, and fault recovery run on real robots.
+- **[edge-semantic-gateway](https://github.com/zxinyu-robot/edge-semantic-gateway)** — Edge semantic scheduling gateway: RGB + subgraph dual uplink, SemanticDirective downlink, coordinating with the end-side execution stack. ▶ `run_sim_bench.sh` (G0 protocol loop)
 
 ### Reusable capabilities
 

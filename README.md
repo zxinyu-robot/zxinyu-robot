@@ -101,6 +101,7 @@
 ### 真实系统验证
 
 - **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX 端侧跨楼层导航闭环，验证状态契约、任务运行时与故障恢复在真实机器人上的运行。
+- **[edge-semantic-gateway](https://github.com/zxinyu-robot/edge-semantic-gateway)** — 边侧语义调度网关：RGB + 子图双路上行，SemanticDirective 下行，与端侧执行栈协同。▶ `run_sim_bench.sh`（G0 协议闭环）
 
 ### 可复用能力
 
