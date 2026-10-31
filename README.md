@@ -233,7 +233,7 @@ Fork 不是一套要与现有系统竞争的技术路线，而是我在长期工
 
 <img src="assets/contact/wechat-qr.jpeg" width="180" alt="微信公众号 佛科思想录 二维码">
 
-- **关注** — 微信扫描上方二维码，或从[公众号文章]([https://mp.weixin.qq.com/s/b_Cfcuq_5B-OSHIG2GLxrQ](https://mp.weixin.qq.com/s/P-YrXc1eNrKBHbHvUd07pQ))页顶部点击关注。
+- **关注** — 微信扫描上方二维码，或从[公众号文章](https://mp.weixin.qq.com/s/P-YrXc1eNrKBHbHvUd07pQ)页顶部点击关注。
 - **提问交流** — 关注后直接在公众号后台发消息：技术问题、架构讨论、合作意向都可以，我会逐条回复。
 
 **欢迎通过以下方式参与：**
