@@ -86,7 +86,11 @@
 
 ### 核心工程载体
 
+- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** — 哈希瓦片地图底座 + 空间状态运行时。把 Super-LIO 局部增量位姿经地理锚定、GCJ-02 对齐，嵌入高德 / XYZ 瓦片（`z/x/y`），以版本化状态事务管理，并导出高斯泼溅 3DGS PLY。**可编译、可测试、附 3×3 高德底图 demo**。它是"地图是导航的度量底座"这一理念的代码载体。
+
 - **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — C++20 空间状态运行时：状态契约、语义 Token、ESN 时序记忆、端侧策略管理与任务编排。**已实现**：状态契约（版本链、定位健康度、执行租约、准入判定、故障注入）；**尚未实现**：弱网传输调度、DDS 协议生成。它不是成熟产品，是核心理念与系统架构的长期载体。
+
+> 两者关系：`spatial-map-foundation` 管"状态从哪来、落到哪个瓦片"（度量底座）；`ForkSpatial-Runtime-Engine` 管"状态如何被决策消费"（端侧决策）。
 
 ### 真实系统验证
 

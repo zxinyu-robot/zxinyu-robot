@@ -86,7 +86,11 @@ Recent work:
 
 ### Core engineering vehicle
 
+- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** — Hash-tiled map foundation + spatial-state runtime. Super-LIO local poses are geo-anchored and GCJ-02-aligned into Amap / XYZ tiles (`z/x/y`), managed as versioned state transactions, and exported as Gaussian-splatting 3DGS PLY. **Buildable, testable, with a 3×3 Amap base-map demo**. It is the code vehicle for the idea that "the map is the metric foundation of navigation".
+
 - **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — C++20 spatial state runtime: state contracts, semantic tokens, ESN temporal memory, end-side policy management, and task orchestration. **Implemented**: state contracts (version chains, localization health, execution leases, admission checks, fault injection); **not yet implemented**: weak-network transport scheduling, DDS protocol generation. It is not a mature product, but the long-term vehicle for the core abstraction and system architecture.
+
+> Relationship: `spatial-map-foundation` governs where state comes from and which tile it lands on (the metric foundation); `ForkSpatial-Runtime-Engine` governs how state is consumed by decisions (end-side decision-making).
 
 ### Real-system validation
 
