@@ -200,10 +200,10 @@ These questions emerged gradually from engineering practice and are still evolvi
 How to manage spatial state, task contracts, behavior execution, and fault recovery so that autonomous systems are verifiable and recoverable.
 
 **01 — State Reliability**
-How should autonomous systems represent, validate and manage the lifecycle of spatial and decision-relevant states?
+> How should autonomous systems represent, validate and manage the lifecycle of spatial and decision-relevant states?
 
 **02 — Experience and Adaptive Behavior**
-How can robots accumulate reusable behavioral experience without blindly reusing outdated or context-inappropriate policies?
+> How can robots accumulate reusable behavioral experience without blindly reusing outdated or context-inappropriate policies?
 
 *Verification paths*: stale-state detection, relocalization success rate, recovery time, safe stop, task completion rate.
 
@@ -212,7 +212,7 @@ How can robots accumulate reusable behavioral experience without blindly reusing
 How to achieve multi-agent coordination, task allocation, and risk control under heterogeneous capabilities, partial information, communication constraints, and dynamic environments.
 
 **03 — Resilient Multi-Agent Coordination**
-How can heterogeneous agents coordinate and recover under partial observability, limited communication and conflicting constraints?
+> How can heterogeneous agents coordinate and recover under partial observability, limited communication and conflicting constraints?
 
 *Verification paths*: coordination under loss and latency, communication overhead, map consistency, task recovery.
 
@@ -221,7 +221,7 @@ How can heterogeneous agents coordinate and recover under partial observability,
 When autonomous agents enter public spaces, production systems, and urban infrastructure, how to design coordination rules, responsibility boundaries, and risk governance.
 
 **04 — Authority and Accountability**
-How should task authority, human intervention, escalation rules and accountability be distributed among autonomous agents, operators and institutions in shared environments?
+> How should task authority, human intervention, escalation rules and accountability be distributed among autonomous agents, operators and institutions in shared environments?
 
 *Exploration paths*: human intervention rules, task authorization, escalation workflows, traceability of decisions and responsibilities.
 

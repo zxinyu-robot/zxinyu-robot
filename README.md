@@ -201,12 +201,12 @@ Fork 不是一套要与现有系统竞争的技术路线，而是我在长期工
 如何管理空间状态、任务契约、行为执行与故障恢复，使自主系统具备可验证、可恢复的运行能力。
 
 **01 — State Reliability**
-How should autonomous systems represent, validate and manage the lifecycle of spatial and decision-relevant states?
-自主系统如何表达、验证与管理空间状态及决策相关信息的有效性、可信度和生命周期？
+> How should autonomous systems represent, validate and manage the lifecycle of spatial and decision-relevant states?
+> 自主系统如何表达、验证与管理空间状态及决策相关信息的有效性、可信度和生命周期？
 
 **02 — Experience and Adaptive Behavior**
-How can robots accumulate reusable behavioral experience without blindly reusing outdated or context-inappropriate policies?
-机器人如何积累可复用的行为经验，同时避免过时经验或错误策略迁移到不适用的场景？
+> How can robots accumulate reusable behavioral experience without blindly reusing outdated or context-inappropriate policies?
+> 机器人如何积累可复用的行为经验，同时避免过时经验或错误策略迁移到不适用的场景？
 
 *验证路径*：状态过期检测、重定位成功率、恢复时间、安全停车、任务完成率。
 
@@ -215,8 +215,8 @@ How can robots accumulate reusable behavioral experience without blindly reusing
 如何在异构能力、局部信息、通信约束与动态环境下，实现多智能体协同、任务分配与风险控制。
 
 **03 — Resilient Multi-Agent Coordination**
-How can heterogeneous agents coordinate and recover under partial observability, limited communication and conflicting constraints?
-在局部可观测、通信受限及约束冲突的情况下，异构智能体如何保持协同并恢复正常运行？
+> How can heterogeneous agents coordinate and recover under partial observability, limited communication and conflicting constraints?
+> 在局部可观测、通信受限及约束冲突的情况下，异构智能体如何保持协同并恢复正常运行？
 
 *验证路径*：丢包与时延下的协同表现、通信开销、地图一致性、任务恢复能力。
 
@@ -225,8 +225,8 @@ How can heterogeneous agents coordinate and recover under partial observability,
 当自主智能体进入公共空间、生产系统与城市基础设施时，如何设计协作规则、责任边界与风险治理机制。
 
 **04 — Authority and Accountability**
-How should task authority, human intervention, escalation rules and accountability be distributed among autonomous agents, operators and institutions in shared environments?
-在自主智能体与人、组织共同运行的环境中，任务权限、人工介入、升级处置和责任追踪，应如何在智能体、操作人员与组织之间配置？
+> How should task authority, human intervention, escalation rules and accountability be distributed among autonomous agents, operators and institutions in shared environments?
+> 在自主智能体与人、组织共同运行的环境中，任务权限、人工介入、升级处置和责任追踪，应如何在智能体、操作人员与组织之间配置？
 
 *探索路径*：人工介入规则、任务授权、故障升级流程、决策与责任的可追溯性。
 
