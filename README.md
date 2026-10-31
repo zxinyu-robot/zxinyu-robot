@@ -3,6 +3,7 @@
 ### Robotics & Spatial Intelligence · Reliable Autonomy · Multi-Agent Coordination · Sociotechnical Systems
 
 [![Email](https://img.shields.io/badge/Email-zxiangsheng%40outlook.com-0A66C2?logo=microsoftoutlook)](mailto:zxiangsheng@outlook.com)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-RobotPelicans-FFD21E)](https://huggingface.co/RobotPelicans)
 
 **中文** | [English](./README.en.md)
 
