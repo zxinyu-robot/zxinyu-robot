@@ -73,65 +73,71 @@
 
 近期工作：
 
-- **可靠自主导航**：四足跨楼层目标导航真机闭环已完成，已对齐定位状态、任务契约、规划接口与故障恢复语义。
+**可靠自主导航**：四足跨楼层目标导航真机闭环已完成，已对齐定位状态、任务契约、规划接口与故障恢复语义。
 
-  [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws) · 
+四足跨楼层目标导航的真机闭环验证。
 
-  [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation) · 哈希瓦片地图底座 + 空间状态运行时
+> 🔗 [GitHub 仓库](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)
 
-  [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine) · 
-  
-- **可复用空间运行时中间件**：让状态的来源、版本、置信度、有效期和失败语义被下游规划与执行模块明确理解。
+定位状态的度量底座——状态从哪来、落到哪个瓦片。
 
-   [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)（解决空间状态从哪来）
+> 🔗 [GitHub 仓库](https://github.com/zxinyu-robot/spatial-map-foundation)
 
-   [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)（解决状态如何被消费）
-  
-- **弱网下的多机协同**：自适应通信与版本化子图融合，研究局部信息、通信延迟与数据不一致如何影响协同。
+任务契约与故障恢复语义的运行时载体。
 
-  [swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)
+> 🔗 [GitHub 仓库](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
 
-  [multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)
+**可复用空间运行时中间件**：让状态的来源、版本、置信度、有效期和失败语义被下游规划与执行模块明确理解。
+
+管理状态的来源、版本与失效语义。
+
+> 🔗 [GitHub 仓库](https://github.com/zxinyu-robot/spatial-map-foundation)
+
+让状态被下游规划与执行模块明确消费。
+
+> 🔗 [GitHub 仓库](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+
+**弱网下的多机协同**：自适应通信与版本化子图融合，研究局部信息、通信延迟与数据不一致如何影响协同。
+
+弱网下的自适应通信策略。
+
+> 🔗 [GitHub 仓库](https://github.com/zxinyu-robot/swarm-spatial-link)
+
+版本化子图融合的数据路径。
+
+> 🔗 [GitHub 仓库](https://github.com/zxinyu-robot/multi-robot-map-fusion)
 
 ---
 
 ## Open Source Projects
 
-> 按系统角色分层，而非仓库数量罗列。公开仓库均可构建、可测试；标注 ▶ 的附可运行 demo。
+> 按系统角色分层；均可构建、可测试，标注 ▶ 的附可运行 demo。核心载体定位见上方 Current Work。
 
 ### 核心工程载体
 
-- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)**
-
-  哈希瓦片地图底座 + 空间状态运行时：Super-LIO 位姿经地理锚定、GCJ-02 对齐嵌入高德/XYZ 瓦片，版本化状态事务，导出高斯泼溅 PLY。▶ 3×3 高德底图 demo
-- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)**
-
-   C++20 空间状态运行时：状态契约、语义 Token、ESN 时序记忆、端侧策略与任务编排。已实现契约/准入/故障注入；未实现弱网调度与 DDS。▶ `runtime_demo`
+- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** ▶ 3×3 高德底图 demo
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** ▶ `runtime_demo`
 
 ### 真实系统验证
 
-- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)**
-
-  Go2 + Livox Mid-360 + Orin NX 端侧跨楼层导航闭环，验证状态契约、任务运行时与故障恢复。
-- **[edge-semantic-gateway](https://github.com/zxinyu-robot/edge-semantic-gateway)**
-
-  边侧语义调度网关：RGB + 子图双上行，SemanticDirective 下行。▶ `run_sim_bench.sh`（G0 协议闭环）
+- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX 端侧真机闭环
+- **[edge-semantic-gateway](https://github.com/zxinyu-robot/edge-semantic-gateway)** — 边侧语义调度网关。▶ `run_sim_bench.sh`（G0 协议闭环）
 
 ### 可复用能力
 
-- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — 定位失效恢复状态机，核心无 ROS 依赖。▶ `recovery_demo`
-- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — SLAM/导航诊断 CLI：契约检查、故障图根因排序。▶ `slam-doctor diagnose`
-- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** — POSIX 共享内存关键帧通道与版本化子图注册表。▶ `fusion_demo`
-- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** — 弱网自适应通信：三态 QoS、时钟偏差估计、关键帧调度。▶ `weak_link_demo`
-- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — 四足混合地形状态契约与安全降级。▶ `terrain_demo`
-- **[SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime)** — LiDAR 污染定位自救：检测、可信度仲裁、七态状态机、安全速度上限。
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — 定位失效恢复状态机。▶ `recovery_demo`
+- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — SLAM/导航诊断 CLI。▶ `slam-doctor diagnose`
+- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** ▶ `fusion_demo`
+- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** ▶ `weak_link_demo`
+- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — 地形状态契约与安全降级。▶ `terrain_demo`
+- **[SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime)** — LiDAR 污染定位自救。
 
 ### 学习基线
 
-- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — 可中断导航学习：行为克隆、DAgger 与中途语言纠正。
-- **[terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl)** — Go2 + Piper 一体化 RL 脚手架：教师→学生蒸馏、域随机化。
+- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — 可中断导航学习。
+- **[terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl)** — Go2 一体化 RL 脚手架。
 
-> 标注"脱敏重构"的仓库为过往工程的公开重写，只含可独立测试核心；完整系统、厂商 SDK 与实机数据不公开。
+> 标注"脱敏重构"的仓库为过往工程公开重写，只含可独立测试核心；实现状态以各仓库代码与测试为准。
 
 ## Fork · Engineering Philosophy
 
