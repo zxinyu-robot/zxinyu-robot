@@ -74,11 +74,24 @@
 近期工作：
 
 - **可靠自主导航**：四足跨楼层目标导航真机闭环已完成，已对齐定位状态、任务契约、规划接口与故障恢复语义。
-  **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws) · [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation) · [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+
+  [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws) ·
+
+  [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)
+
+  [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+  
 - **可复用空间运行时中间件**：让状态的来源、版本、置信度、有效期和失败语义被下游规划与执行模块明确理解。
-  [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)（状态从哪来）· [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)（状态如何被消费）
+
+   [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)（解决空间状态从哪来）
+
+   [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)（解决状态如何被消费）
+  
 - **弱网下的多机协同**：自适应通信与版本化子图融合，研究局部信息、通信延迟与数据不一致如何影响协同。
-  [swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link) · [multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)
+
+  [swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)
+
+  [multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)
 
 ---
 
@@ -88,13 +101,21 @@
 
 ### 核心工程载体
 
-- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** — 哈希瓦片地图底座 + 空间状态运行时：Super-LIO 位姿经地理锚定、GCJ-02 对齐嵌入高德/XYZ 瓦片，版本化状态事务，导出高斯泼溅 PLY。▶ 3×3 高德底图 demo
-- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — C++20 空间状态运行时：状态契约、语义 Token、ESN 时序记忆、端侧策略与任务编排。已实现契约/准入/故障注入；未实现弱网调度与 DDS。▶ `runtime_demo`
+- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)**
+
+  哈希瓦片地图底座 + 空间状态运行时：Super-LIO 位姿经地理锚定、GCJ-02 对齐嵌入高德/XYZ 瓦片，版本化状态事务，导出高斯泼溅 PLY。▶ 3×3 高德底图 demo
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)**
+
+   C++20 空间状态运行时：状态契约、语义 Token、ESN 时序记忆、端侧策略与任务编排。已实现契约/准入/故障注入；未实现弱网调度与 DDS。▶ `runtime_demo`
 
 ### 真实系统验证
 
-- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX 端侧跨楼层导航闭环，验证状态契约、任务运行时与故障恢复。
-- **[edge-semantic-gateway](https://github.com/zxinyu-robot/edge-semantic-gateway)** — 边侧语义调度网关：RGB + 子图双上行，SemanticDirective 下行。▶ `run_sim_bench.sh`（G0 协议闭环）
+- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)**
+
+  Go2 + Livox Mid-360 + Orin NX 端侧跨楼层导航闭环，验证状态契约、任务运行时与故障恢复。
+- **[edge-semantic-gateway](https://github.com/zxinyu-robot/edge-semantic-gateway)**
+
+  边侧语义调度网关：RGB + 子图双上行，SemanticDirective 下行。▶ `run_sim_bench.sh`（G0 协议闭环）
 
 ### 可复用能力
 
