@@ -14,12 +14,6 @@
 >
 > As my practice extended from low-level state estimation and system implementation to the interaction between spatial state and upstream agents, my focus shifted from individual algorithms to the organizational mechanisms of intelligent systems: **how to understand and manage spatial state, organize intelligent behavior, and enable different agents to coordinate reliably under uncertainty.**
 
-**Vision · Cross-embodiment urban autonomy**
-
-![Cross-embodiment urban autonomy (concept render)](assets/vision/cross-embodiment-nav-vision.png)
-
-> Quadruped, biped, wheeled, and aerial platforms navigating the same urban road autonomously. *Concept render, backed by the runnable evidence in Selected Engineering Work below.*
-
 ---
 
 ## Selected Engineering Work
@@ -79,56 +73,70 @@ Three research scales (progressive):
 
 Recent work:
 
-- **Reliable autonomous navigation**: the real-robot cross-floor navigation loop is complete; current focus is aligning localization state, task contracts, planning interfaces, and failure-recovery semantics.
-- **Reusable spatial runtime middleware**: making state's source, version, confidence, validity, and failure semantics explicit to downstream modules.
-- **Multi-robot coordination under weak networks**: adaptive communication and versioned submap fusion; how partial information and inconsistency affect coordination.
+**Reliable autonomous navigation**: the real-robot cross-floor navigation loop is complete; current focus is aligning localization state, task contracts, planning interfaces, and failure-recovery semantics.
 
+Real-robot validation of cross-floor goal navigation.
+
+> 🔗 [GitHub repository](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)
+
+The metric foundation for localization state — where state comes from and which tile it lands on.
+
+> 🔗 [GitHub repository](https://github.com/zxinyu-robot/spatial-map-foundation)
+
+The runtime vehicle for task contracts and failure-recovery semantics.
+
+> 🔗 [GitHub repository](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+
+**Reusable spatial runtime middleware**: making state's source, version, confidence, validity, and failure semantics explicit to downstream modules.
+
+Managing the source, version, and invalidation semantics of state.
+
+> 🔗 [GitHub repository](https://github.com/zxinyu-robot/spatial-map-foundation)
+
+Making state explicitly consumable by downstream planning and execution.
+
+> 🔗 [GitHub repository](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+
+**Multi-robot coordination under weak networks**: adaptive communication and versioned submap fusion; how partial information, latency, and inconsistency affect coordination.
+
+Adaptive communication strategy under weak networks.
+
+> 🔗 [GitHub repository](https://github.com/zxinyu-robot/swarm-spatial-link)
+
+The data path for versioned submap fusion.
+
+> 🔗 [GitHub repository](https://github.com/zxinyu-robot/multi-robot-map-fusion)
 ---
 
 ## Open Source Projects
 
-
-> Organized by system role, not repository count. All public repositories are buildable and testable; repos marked ▶ ship a runnable demo.
+> Organized by system role; all repos are buildable and testable, and repos marked ▶ ship a runnable demo. Core-vehicle roles are explained in Current Work above.
 
 ### Core engineering vehicle
 
-- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** — Hash-tiled map foundation + spatial-state runtime. Super-LIO local poses are geo-anchored and GCJ-02-aligned into Amap / XYZ tiles (`z/x/y`), managed as versioned state transactions, and exported as Gaussian-splatting 3DGS PLY. **Buildable, testable, with a 3×3 Amap base-map demo**. It is the code vehicle for the idea that "the map is the metric foundation of navigation".
-
-- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — C++20 spatial state runtime: state contracts, semantic tokens, ESN temporal memory, end-side policy management, and task orchestration. **Implemented**: state contracts (version chains, localization health, execution leases, admission checks, fault injection); **not yet implemented**: weak-network transport scheduling, DDS protocol generation. It is not a mature product, but the long-term vehicle for the core abstraction and system architecture.
-
-> Relationship: `spatial-map-foundation` governs where state comes from and which tile it lands on (the metric foundation); `ForkSpatial-Runtime-Engine` governs how state is consumed by decisions (end-side decision-making).
+- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** ▶ 3×3 Amap base-map demo
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** ▶ `runtime_demo`
 
 ### Real-system validation
 
-- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX end-side cross-floor navigation loop, validating how state contracts, task runtime, and fault recovery run on real robots.
-- **[edge-semantic-gateway](https://github.com/zxinyu-robot/edge-semantic-gateway)** — Edge semantic scheduling gateway: RGB + subgraph dual uplink, SemanticDirective downlink, coordinating with the end-side execution stack. ▶ `run_sim_bench.sh` (G0 protocol loop)
+- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX end-side real-robot loop
+- **[edge-semantic-gateway](https://github.com/zxinyu-robot/edge-semantic-gateway)** — edge semantic scheduling gateway. ▶ `run_sim_bench.sh` (G0 protocol loop)
 
 ### Reusable capabilities
 
-- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — localization-loss recovery state machine (Tracking → Searching → Aligning → Verifying → SafeStop), ROS-free core. ▶ `recovery_demo`
-- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — SLAM/navigation diagnostics CLI: contract checks, fault-graph root-cause ranking, next low-cost probe. ▶ `slam-doctor diagnose examples/nav_oscillation.jsonl`
-- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** — POSIX shared-memory keyframe channel and versioned submap registry. ▶ `fusion_demo`
-- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** — weak-network adaptive communication: Healthy/Constrained/Critical QoS, clock-offset estimation, keyframe scheduling. ▶ `weak_link_demo`
-- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — quadruped mixed-terrain state contracts and safe degradation. ▶ `terrain_demo`
-- **[SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime)** — localization self-rescue under LiDAR pollution: detection, confidence arbitration, seven-state machine, safe speed caps, recovery gating.
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — localization-loss recovery state machine. ▶ `recovery_demo`
+- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — SLAM/navigation diagnostics CLI. ▶ `slam-doctor diagnose`
+- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** ▶ `fusion_demo`
+- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** ▶ `weak_link_demo`
+- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — mixed-terrain state contracts and safe degradation. ▶ `terrain_demo`
+- **[SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime)** — localization self-rescue under LiDAR pollution.
 
 ### Learning baselines
 
-- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — interruptible navigation learning: behavior cloning, DAgger, mid-trajectory language correction.
-- **[terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl)** — Go2 + Piper integrated RL scaffold: 19-DoF actions, teacher→student distillation, domain randomization, latency modeling.
+- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — interruptible navigation learning.
+- **[terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl)** — Go2 integrated RL scaffold.
 
-**▶ Demo Quick View (terminal replay)**
-
-| Repository | Command | Shows |
-| --- | --- | --- |
-| legged-navigation-runtime | `./build/default/recovery_demo` | localization loss → search → alignment → recovery |
-| swarm-spatial-link | `./build/default/weak_link_demo` | adaptive QoS across three link states |
-| fork-spatial-runtime | `./build/default/examples/cpp/runtime_demo` | graph transactions and state lifecycle |
-| multi-robot-map-fusion | `./build/default/fusion_demo` | shared memory + submap registration |
-| legged-terrain-state | `./build/default/terrain_demo` | terrain risk grading and safety modes |
-| SlamDoctor-Runtime | `slam-doctor diagnose examples/nav_oscillation.jsonl` | root-cause triage of eight symptom classes |
-
-> Repositories marked "sanitized rewrite" are public rewrites of past engineering work, containing only independently testable cores; complete systems, vendor SDKs, and real-robot data are not public. Status is subject to each repository's code, tests, and docs.
+> Repositories marked "sanitized rewrite" are public rewrites of past engineering work containing only independently testable cores; status is subject to each repository's code and tests.
 
 ## Fork · Engineering Philosophy
 
@@ -145,11 +153,17 @@ Fork is not a technology route competing with existing systems, but a set of **e
 >
 > Engineering principles: **interpretable · verifiable · replaceable · rollback-able · reliable without harm**
 
+**Fork Vision · Cross-embodiment urban autonomy**
+
+![Cross-embodiment urban autonomy (concept render)](assets/vision/cross-embodiment-nav-vision.png)
+
+> Quadruped, biped, wheeled, and aerial platforms navigating the same urban road autonomously. *Concept render, backed by the runnable evidence in Selected Engineering Work above.*
+
 ---
 
 ## How I Think About Systems
 
-### Three Spaces: how I understand the world a robot lives in
+### Three-Space Law: how I understand the world a robot lives in
 
 | Space | Question answered | Description |
 | --- | --- | --- |
@@ -157,7 +171,7 @@ Fork is not a technology route competing with existing systems, but a set of **e
 | Symbolic Space | What are the objects? What relations? What does the task mean? | Semantics, relations, constraints, task meaning |
 | World Space | What state does the system believe the world is in? What is trusted, what can be executed? | Task-relevant state shared among the autonomous system, upstream agents, and world models |
 
-The three spaces are an evolving systems-thinking framework — not three mutually exclusive map algorithms, and World Space is not conflated with World Model.
+The Three-Space Law is an evolving systems-thinking framework — not three mutually exclusive map algorithms, and World Space is not conflated with World Model.
 
 ### State Contracts: how I understand system reliability
 
