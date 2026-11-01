@@ -231,7 +231,7 @@ Fork is initiated and maintained by me personally. More than stars, I value peop
 
 <img src="assets/contact/wechat-qr.jpeg" width="180" alt="WeChat Official Account 佛科思想录 QR code">
 
-- **Follow** — Scan the QR code above in WeChat, or tap Follow at the top of [this article](https://mp.weixin.qq.com/s/b_Cfcuq_5B-OSHIG2GLxrQ).
+- **Follow** — Scan the QR code above in WeChat, or tap Follow at the top of [this article](https://mp.weixin.qq.com/s/P-YrXc1eNrKBHbHvUd07pQ).
 - **Ask & discuss** — Message the account directly after following: technical questions, architecture discussions, collaboration ideas. I reply to each one.
 
 **Ways to participate:**
