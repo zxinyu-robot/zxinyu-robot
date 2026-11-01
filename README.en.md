@@ -125,27 +125,6 @@ Recent work:
 
 > Repositories marked "sanitized rewrite" are public rewrites of past engineering work containing only independently testable cores; status is subject to each repository's code and tests.
 
-## Fork · Engineering Philosophy
-
-Fork is not a technology route competing with existing systems, but a set of **engineering values** formed through long-term practice.
-
-- **Technology should serve real problems** — not technology for its own sake, not complexity as a measure of value.
-- **Autonomy is not the absence of constraints** — intelligent systems should know their state, capability bounds, and behavioral authority.
-- **Reliability comes from understandability and correctability** — explain state, recognize anomalies, recover, and allow rollback when needed.
-- **Technological progress should respect human interests** — automation is not an excuse to evade responsibility; efficiency does not outrank safety.
-
-> **佛科 · Fork — Technology should be reliable, and do no harm.**
->
-> Fork means deriving capabilities from existing systems — through decomposition, composition, replacement, and evolution — to make technology interpretable, verifiable, and rollback-able.
->
-> Engineering principles: **interpretable · verifiable · replaceable · rollback-able · reliable without harm**
-
-**Fork Vision · Cross-embodiment urban autonomy**
-
-![Cross-embodiment urban autonomy (concept render)](assets/vision/cross-embodiment-nav-vision.png)
-
-> Quadruped, biped, wheeled, and aerial platforms navigating the same urban road autonomously. *Concept render, backed by the runnable evidence in Selected Engineering Work above.*
-
 ---
 
 ## How I Think About Systems
@@ -218,6 +197,29 @@ When autonomous agents enter public spaces, production systems, and urban infras
 - **Computational experiments** — real robots, data replay, controlled fault injection, comparative evaluation.
 - **Candidate mechanisms** — semantic state tokens, temporal / episodic memory, end-side continual adaptation, world models; each evaluated independently and replaceable.
 - **Sociotechnical analysis** (planned) — combining STS, Technology Policy, and Computational Social Science.
+
+---
+
+## Fork · Engineering Philosophy
+
+Fork is not a technology route competing with existing systems, but a set of **engineering values** formed through long-term practice.
+
+- **Technology should serve real problems** — not technology for its own sake, not complexity as a measure of value.
+- **Autonomy is not the absence of constraints** — intelligent systems should know their state, capability bounds, and behavioral authority.
+- **Reliability comes from understandability and correctability** — explain state, recognize anomalies, recover, and allow rollback when needed.
+- **Technological progress should respect human interests** — automation is not an excuse to evade responsibility; efficiency does not outrank safety.
+
+> **佛科 · Fork — Technology should be reliable, and do no harm.**
+>
+> Fork means deriving capabilities from existing systems — through decomposition, composition, replacement, and evolution — to make technology interpretable, verifiable, and rollback-able.
+>
+> Engineering principles: **interpretable · verifiable · replaceable · rollback-able · reliable without harm**
+
+**Fork Vision · Cross-embodiment urban autonomy**
+
+![Cross-embodiment urban autonomy (concept render)](assets/vision/cross-embodiment-nav-vision.png)
+
+> Quadruped, biped, wheeled, and aerial platforms navigating the same urban road autonomously. *Concept render, backed by the runnable evidence in Selected Engineering Work above.*
 
 ---
 
