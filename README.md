@@ -39,7 +39,7 @@
 - **背景**：动态非结构化环境中的四足机器人长航时、跨楼层目标导航。
 - **职责**：端边协同资源分配、自研导航中间件、关键算法场景适配优化。
 - **实现**：构建端边协同导航中间件，统一定位状态、任务契约、规划接口与故障恢复语义。
-- **结果**：跨楼层闭环云端仿真 11/11 通过，真机在线建图与规划已运行（对应 [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)）。
+- **结果**：跨楼层闭环通过，真机在线建图与规划已运行（对应 [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)）。
 
 **▶ 演示**
 
