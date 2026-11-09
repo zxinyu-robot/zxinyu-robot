@@ -68,62 +68,35 @@
 
 ## Current Work
 
-统一方向：**真实环境中的自主智能系统及其组织机制**。
+统一方向：**真实环境中的自主智能系统及其组织机制**。三个研究尺度逐级递进，每个尺度对应一组可构建、可测试的仓库（标注 ▶ 的附可运行 demo）。
 
-三个研究尺度（递进）：
+### 公共底座 · 空间状态与契约
 
-1. **单体智能** — 空间状态理解、自主行为、长期任务执行与故障恢复；
-2. **群体智能** — 异构机器人、多智能体协同、信息共享与任务组织；
-3. **社会技术系统** — 人机协作、权限分配、风险治理与责任追踪。
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — 状态契约、执行租约、原因码与端侧策略管理的运行时。▶ `runtime_demo`
+- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** — 哈希瓦片地图、地理锚定、版本化状态事务与语义瓦片。▶ 3×3 高德底图 demo
 
-近期工作：
+### 1 · 单体智能 — 空间状态理解、自主行为、长期任务执行与故障恢复
 
-**可靠自主导航**：四足跨楼层目标导航真机闭环已完成，已对齐定位状态、任务契约、规划接口与故障恢复语义。
+- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX 四足跨楼层目标导航，真机闭环。
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — 故障恢复与诊断：定位失效恢复状态机、地形安全降级、LiDAR 污染定位自救、SLAM/导航诊断 CLI。▶ `recovery_demo` · `terrain_demo` · `slam-doctor diagnose`
 
-- 四足跨楼层目标导航的真机闭环验证。[🔗 GitHub 仓库](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)
-- 定位状态的度量底座——状态从哪来、落到哪个瓦片。[🔗 GitHub 仓库](https://github.com/zxinyu-robot/spatial-map-foundation)
-- 任务契约与故障恢复语义的运行时载体。[🔗 GitHub 仓库](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+### 2 · 群体智能 — 异构机器人、多智能体协同、信息共享与任务组织
 
-**可复用空间运行时中间件**：让状态的来源、版本、置信度、有效期和失败语义被下游规划与执行模块明确理解。
+- **[swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)** — 多机 Adapter 基础设施（C++17）：统一状态、地图与下行指令契约；弱网 QoS 调度与版本化子图融合；CycloneDDS 可选传输；中心化联邦学习（Flower）只调通信配置；边侧语义调度网关作为参考消费方。已在两台主机间做 DDS + netem 实测（公网链路，非真机）。▶ `adapter_demo` · `swarm_link_probe`
 
-- 管理状态的来源、版本与失效语义。[🔗 GitHub 仓库](https://github.com/zxinyu-robot/spatial-map-foundation)
-- 让状态被下游规划与执行模块明确消费。[🔗 GitHub 仓库](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+### 3 · 社会技术系统 — 人机协作、权限分配、风险治理与责任追踪
 
-**弱网下的多机协同**：自适应通信与版本化子图融合，研究局部信息、通信延迟与数据不一致如何影响协同。
-
-- 弱网下的自适应通信策略。[🔗 GitHub 仓库](https://github.com/zxinyu-robot/swarm-spatial-link)
-- 版本化子图融合的数据路径。[🔗 GitHub 仓库](https://github.com/zxinyu-robot/multi-robot-map-fusion)
----
-
-## Open Source Projects
-
-> 按系统角色分层；均可构建、可测试，标注 ▶ 的附可运行 demo。核心载体定位见上方 Current Work。
-
-### 核心工程载体
-
-- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** ▶ 3×3 高德底图 demo
-- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** ▶ `runtime_demo`
-
-### 真实系统验证
-
-- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX 端侧真机闭环
-- **[edge-semantic-gateway](https://github.com/zxinyu-robot/edge-semantic-gateway)** — 边侧语义调度网关。▶ `run_sim_bench.sh`（G0 协议闭环）
-
-### 可复用能力
-
-- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — 定位失效恢复状态机。▶ `recovery_demo`
-- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — SLAM/导航诊断 CLI。▶ `slam-doctor diagnose`
-- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** ▶ `fusion_demo`
-- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** ▶ `weak_link_demo`
-- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — 地形状态契约与安全降级。▶ `terrain_demo`
-- **[SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime)** — LiDAR 污染定位自救。
+暂无独立仓库，相关机制先落在已有契约里：执行租约与本机否决权（ForkSpatial、`DirectiveGate`）、动作白名单与旁路比对 / 自动回滚（`SafetyEnvelope`、`PolicyGate`）、原因码与执行回执（`ReasonCode`、`ExecutionReport`）、人工接管学习（embodied-learning-baselines）。下一步：文本策略库 + 责任链回放。
 
 ### 学习基线
 
-- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — 可中断导航学习。
-- **[terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl)** — Go2 一体化 RL 脚手架。
+- **[embodied-learning-baselines](https://github.com/zxinyu-robot/embodied-learning-baselines)** — 可中断导航学习（人工接管 / DAgger）、Go2 + Piper 一体化 RL、清洁机器人操作 sim2real。
 
-> 标注"脱敏重构"的仓库为过往工程公开重写，只含可独立测试核心；实现状态以各仓库代码与测试为准。
+### 工具
+
+- **[KMZ-editor](https://github.com/zxinyu-robot/KMZ-editor)** — DJI 标准 KMZ 航线导出与编辑。
+
+> 原 swarm-spatial-link、multi-robot-map-fusion、edge-semantic-gateway、legged-terrain-state、SensorGuardNav-Runtime、SlamDoctor-Runtime、interactive-nav-learning、terrain-carry-rl、CleanRobot-Sim2Real-skill 已并入上述仓库并归档。标注“脱敏重构”的仓库为过往工程的公开重写，只含可独立测试的核心；实现状态以各仓库代码与测试为准。
 
 ---
 

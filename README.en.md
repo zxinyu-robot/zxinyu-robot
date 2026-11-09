@@ -68,62 +68,35 @@ Three representative work stages; commercial work, production work, and personal
 
 ## Current Work
 
-Unified direction: **autonomous intelligent systems in real environments, and their organization**.
+Unified direction: **autonomous intelligent systems in real environments and how they are organized**. Three progressive research scales, each backed by buildable, tested repositories (▶ marks a runnable demo).
 
-Three research scales (progressive):
+### Shared foundation · spatial state and contracts
 
-1. **Single-agent intelligence** — spatial state understanding, autonomous behavior, long-horizon task execution, fault recovery;
-2. **Multi-agent intelligence** — heterogeneous robots, coordination, information sharing, task organization;
-3. **Sociotechnical systems** — human-robot collaboration, authority allocation, risk governance, accountability.
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — runtime for state contracts, execution leases, reason codes and on-device policy management. ▶ `runtime_demo`
+- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** — hashed tile maps, geo-anchoring, versioned state transactions and semantic tiles. ▶ 3×3 Amap base-map demo
 
-Recent work:
+### 1 · Single-agent intelligence — spatial state, autonomous behavior, long-horizon execution and failure recovery
 
-**Reliable autonomous navigation**: the real-robot cross-floor navigation loop is complete; current focus is aligning localization state, task contracts, planning interfaces, and failure-recovery semantics.
+- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX cross-floor goal navigation, real-robot loop.
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — failure recovery and diagnostics: localization-loss recovery state machine, terrain safe degradation, LiDAR-contamination self-rescue, SLAM/navigation diagnostics CLI. ▶ `recovery_demo` · `terrain_demo` · `slam-doctor diagnose`
 
-- Real-robot validation of cross-floor goal navigation. [🔗 GitHub repository](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)
-- The metric foundation for localization state — where state comes from and which tile it lands on. [🔗 GitHub repository](https://github.com/zxinyu-robot/spatial-map-foundation)
-- The runtime vehicle for task contracts and failure-recovery semantics. [🔗 GitHub repository](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+### 2 · Collective intelligence — heterogeneous robots, multi-agent coordination, information sharing and task organization
 
-**Reusable spatial runtime middleware**: making state's source, version, confidence, validity, and failure semantics explicit to downstream modules.
+- **[swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)** — multi-robot adapter infrastructure (C++17): unified state, map and directive contracts; weak-network QoS scheduling and versioned submap fusion; optional CycloneDDS transport; centralized federated learning (Flower) may only tune communication settings; the edge semantic gateway is the reference consumer. Measured with DDS + netem between two hosts (public internet link, not robots). ▶ `adapter_demo` · `swarm_link_probe`
 
-- Managing the source, version, and invalidation semantics of state. [🔗 GitHub repository](https://github.com/zxinyu-robot/spatial-map-foundation)
-- Making state explicitly consumable by downstream planning and execution. [🔗 GitHub repository](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
+### 3 · Sociotechnical systems — human–robot collaboration, authority allocation, risk governance and accountability
 
-**Multi-robot coordination under weak networks**: adaptive communication and versioned submap fusion; how partial information, latency, and inconsistency affect coordination.
-
-- Adaptive communication strategy under weak networks. [🔗 GitHub repository](https://github.com/zxinyu-robot/swarm-spatial-link)
-- The data path for versioned submap fusion. [🔗 GitHub repository](https://github.com/zxinyu-robot/multi-robot-map-fusion)
----
-
-## Open Source Projects
-
-> Organized by system role; all repos are buildable and testable, and repos marked ▶ ship a runnable demo. Core-vehicle roles are explained in Current Work above.
-
-### Core engineering vehicle
-
-- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** ▶ 3×3 Amap base-map demo
-- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** ▶ `runtime_demo`
-
-### Real-system validation
-
-- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX end-side real-robot loop
-- **[edge-semantic-gateway](https://github.com/zxinyu-robot/edge-semantic-gateway)** — edge semantic scheduling gateway. ▶ `run_sim_bench.sh` (G0 protocol loop)
-
-### Reusable capabilities
-
-- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — localization-loss recovery state machine. ▶ `recovery_demo`
-- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — SLAM/navigation diagnostics CLI. ▶ `slam-doctor diagnose`
-- **[multi-robot-map-fusion](https://github.com/zxinyu-robot/multi-robot-map-fusion)** ▶ `fusion_demo`
-- **[swarm-spatial-link](https://github.com/zxinyu-robot/swarm-spatial-link)** ▶ `weak_link_demo`
-- **[legged-terrain-state](https://github.com/zxinyu-robot/legged-terrain-state)** — mixed-terrain state contracts and safe degradation. ▶ `terrain_demo`
-- **[SensorGuardNav-Runtime](https://github.com/zxinyu-robot/SensorGuardNav-Runtime)** — localization self-rescue under LiDAR pollution.
+No dedicated repository yet; the mechanisms live in existing contracts: execution leases and on-robot veto (ForkSpatial, `DirectiveGate`), action whitelists with side-by-side comparison and automatic rollback (`SafetyEnvelope`, `PolicyGate`), reason codes and execution reports (`ReasonCode`, `ExecutionReport`), human-takeover learning (embodied-learning-baselines). Next: a text strategy library plus accountability-chain replay.
 
 ### Learning baselines
 
-- **[interactive-nav-learning](https://github.com/zxinyu-robot/interactive-nav-learning)** — interruptible navigation learning.
-- **[terrain-carry-rl](https://github.com/zxinyu-robot/terrain-carry-rl)** — Go2 integrated RL scaffold.
+- **[embodied-learning-baselines](https://github.com/zxinyu-robot/embodied-learning-baselines)** — interruptible navigation learning (human takeover / DAgger), Go2 + Piper whole-body RL, cleaning-robot manipulation sim2real.
 
-> Repositories marked "sanitized rewrite" are public rewrites of past engineering work containing only independently testable cores; status is subject to each repository's code and tests.
+### Tools
+
+- **[KMZ-editor](https://github.com/zxinyu-robot/KMZ-editor)** — DJI-standard KMZ route export and editing.
+
+> The former swarm-spatial-link, multi-robot-map-fusion, edge-semantic-gateway, legged-terrain-state, SensorGuardNav-Runtime, SlamDoctor-Runtime, interactive-nav-learning, terrain-carry-rl and CleanRobot-Sim2Real-skill have been merged into the repositories above and archived. Repositories marked as sanitized rewrites are public re-implementations of past engineering work containing only independently testable cores; the code and tests are authoritative.
 
 ---
 
