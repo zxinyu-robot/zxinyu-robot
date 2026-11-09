@@ -90,6 +90,22 @@
 
 ### 具身学习基线
 
+### Public Collaboration
+
+当前协作试点是 [SlamDoctor](https://github.com/zxinyu-robot/SlamDoctor)：一个
+不依赖 ROS 的机器人自主系统离线诊断工具。目标是让陌生开发者无需完整机器人
+系统，也能对日志完成首次诊断并判断输出是否有用。
+
+欢迎参与：
+
+- ROS 2、rosbag2、MCAP 数据适配；
+- 可离线复现的机器人故障案例；
+- 基于可观测证据的诊断规则与自动化测试；
+- 报告、文档和跨平台使用反馈。
+
+当前优先事项：邀请外部开发者独立试用，并根据真实反馈改进安装流程、标准观测
+格式和诊断输出。讨论先行，实现其次，持续验证。
+
 - **[embodied-learning-baselines-](https://github.com/zxinyu-robot/embodied-learning-baselines-)** — 可中断导航学习（人工接管 / DAgger）、Go2 + Piper 一体化 RL、清洁机器人操作 sim2real。
 
 ### 工具
