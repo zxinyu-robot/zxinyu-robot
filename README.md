@@ -68,179 +68,83 @@
 
 ## Current Work
 
-统一方向：**真实环境中的自主智能系统及其组织机制**。三个研究尺度逐级递进，每个尺度对应一组可构建、可测试的仓库（标注 ▶ 的附可运行 demo）。
+统一方向：**真实环境中的自主智能系统及其组织机制**。
 
 ### 公共底座 · 空间状态与契约
 
-- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — 状态契约、执行租约、原因码与端侧策略管理的运行时。▶ `runtime_demo`
-- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** — 哈希瓦片地图、地理锚定、版本化状态事务与语义瓦片。▶ 3×3 高德底图 demo
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — 状态契约、执行租约与空间状态运行时。
+- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** — 地图瓦片、空间锚定与版本化状态事务。
 
-### 1 · 单体智能 — 空间状态理解、自主行为、长期任务执行与故障恢复
+### 1 · 单体智能
 
-- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX 四足跨楼层目标导航，真机闭环。
-- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — 故障恢复与诊断：定位失效恢复状态机、地形安全降级、LiDAR 污染定位自救、SLAM/导航诊断 CLI。▶ `recovery_demo` · `terrain_demo` · `slam-doctor diagnose`
+- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 四足机器人跨楼层导航真机闭环。
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — 足式导航运行时、故障恢复与诊断集成。
+- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — 面向机器人自主系统日志的离线诊断工具。
 
-### 2 · 群体智能 — 异构机器人、多智能体协同、信息共享与任务组织
+### 2 · 群体智能
 
-- **[swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)** — 多机 Adapter 基础设施（C++17）：统一状态、地图与下行指令契约；弱网 QoS 调度与版本化子图融合；CycloneDDS 可选传输；中心化联邦学习（Flower）只调通信配置；边侧语义调度网关作为参考消费方。已在两台主机间做 DDS + netem 实测（公网链路，非真机）。▶ `adapter_demo` · `swarm_link_probe`
+- **[swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)** — 多机状态、地图与指令契约，以及弱网通信和子图融合。
 
-### 3 · 社会技术系统 — 人机协作、权限分配、风险治理与责任追踪
+### 3 · 社会技术系统
 
-暂无独立仓库，相关机制先落在已有契约里：执行租约与本机否决权（ForkSpatial、`DirectiveGate`）、动作白名单与旁路比对 / 自动回滚（`SafetyEnvelope`、`PolicyGate`）、原因码与执行回执（`ReasonCode`、`ExecutionReport`）、人工接管学习（embodied-learning-baselines-）。下一步：文本策略库 + 责任链回放。
+暂无独立仓库。相关机制分布在状态契约、故障恢复、人工接管学习和运行时执行语义中。
 
-### 具身学习基线
+详细系统观、研究议程和工程原则见：
 
-### Public Collaboration
-
-当前协作试点是 [SlamDoctor](https://github.com/zxinyu-robot/SlamDoctor)：一个
-不依赖 ROS 的机器人自主系统离线诊断工具。目标是让陌生开发者无需完整机器人
-系统，也能对日志完成首次诊断并判断输出是否有用。
-
-欢迎参与：
-
-- ROS 2、rosbag2、MCAP 数据适配；
-- 可离线复现的机器人故障案例；
-- 基于可观测证据的诊断规则与自动化测试；
-- 报告、文档和跨平台使用反馈。
-
-当前优先事项：邀请外部开发者独立试用，并根据真实反馈改进安装流程、标准观测
-格式和诊断输出。讨论先行，实现其次，持续验证。
-
-- **[embodied-learning-baselines-](https://github.com/zxinyu-robot/embodied-learning-baselines-)** — 可中断导航学习（人工接管 / DAgger）、Go2 + Piper 一体化 RL、清洁机器人操作 sim2real。
-
-### 工具
-
-- **[KMZ-editor](https://github.com/zxinyu-robot/KMZ-editor)** — DJI 标准 KMZ 航线导出与编辑。
-
-> 原 swarm-spatial-link、multi-robot-map-fusion、edge-semantic-gateway、legged-terrain-state、SensorGuardNav-Runtime、SlamDoctor-Runtime、interactive-nav-learning、terrain-carry-rl、CleanRobot-Sim2Real-skill 已并入上述仓库并归档。标注“脱敏重构”的仓库为过往工程的公开重写，只含可独立测试的核心；实现状态以各仓库代码与测试为准。
+- [Systems Perspective](docs/systems-perspective.md)
+- [Research Agenda](docs/research-agenda.md)
+- [Engineering Philosophy](docs/engineering-philosophy.md)
 
 ---
 
-## How I Think About Systems
+## Public Collaboration
 
-### 三空间法则：我如何理解机器人所处的世界
+当前所有 `Current Work` 项目都开放不同层次的参与。
 
-| 空间 | 回答的问题 | 描述 |
-| --- | --- | --- |
-| 度量空间 Metric | 我在哪里？周围有什么？可否通行？ | 定位、地图、几何关系、运动状态 |
-| 符号空间 Symbolic | 对象是什么？什么关系？任务意味着什么？ | 语义、关系、约束、任务意义 |
-| 世界空间 World | 系统所理解的世界处于什么状态？哪些可信、哪些可执行？ | 供自主系统、上层智能体与世界模型交互的任务相关状态 |
+优先协作入口：
 
-三空间法则是正在演进的系统认知框架，不等同于三种互斥的地图算法，也不把 World Space 与 World Model 混为一谈。
+- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — 离线诊断、ROS 2 / rosbag2 / MCAP 适配与故障案例。
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — 故障恢复、运行时诊断和导航系统集成。
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — 状态契约、执行语义和运行时接口。
+- **[swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)** — 多机 Adapter、DDS、弱网 QoS 和子图融合。
 
-### 状态契约：我如何理解系统可靠性
+没有真实机器人也可以参与：从离线日志、测试、文档和可复现案例开始。
 
-状态不只是数据结构，还应包含：
-
-- **来源与时间** — 从哪里产生、何时产生；
-- **坐标系与版本** — 属于哪个空间基准与版本；
-- **置信度与有效期** — 是否可信、是否过期；
-- **生命周期** — 如何更新、失效与撤销；
-- **权限与责任** — 谁可以使用、修改并依据它执行。
-
-这一思想可继续延伸到任务契约、行为执行、故障恢复与多智能体协同。
-
-### 研究尺度：我希望继续回答什么问题
-
-自主智能体 → 多智能体系统 → 社会技术系统（详见 Research Agenda）。
+**Discussion first. Implementation second. Validation throughout.**
 
 ---
 
-## Research Agenda
+## Open Source Projects
 
-这些问题从工程实践中逐步形成，仍在演进。我把当前的系统设计和学习机制视为待检验的假设，而非最终方案。
+- **Runtime & Spatial State** — [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine) · [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)
+- **Navigation & Reliability** — [SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime) · [legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime) · [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)
+- **Multi-Robot Systems** — [swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)
+- **Embodied Learning** — [embodied-learning-baselines-](https://github.com/zxinyu-robot/embodied-learning-baselines-)
+- **Tools** — [KMZ-editor](https://github.com/zxinyu-robot/KMZ-editor)
 
-### Layer 1 · Autonomous Systems
-
-如何管理空间状态、任务契约、行为执行与故障恢复，使自主系统具备可验证、可恢复的运行能力。
-
-**01 — State Reliability**
-> How should autonomous systems represent, validate and manage the lifecycle of spatial and decision-relevant states?
-> 自主系统如何表达、验证与管理空间状态及决策相关信息的有效性、可信度和生命周期？
-
-**02 — Experience and Adaptive Behavior**
-> How can robots accumulate reusable behavioral experience without blindly reusing outdated or context-inappropriate policies?
-> 机器人如何积累可复用的行为经验，同时避免过时经验或错误策略迁移到不适用的场景？
-
-*验证路径*：状态过期检测、重定位成功率、恢复时间、安全停车、任务完成率。
-
-### Layer 2 · Multi-Agent Coordination
-
-如何在异构能力、局部信息、通信约束与动态环境下，实现多智能体协同、任务分配与风险控制。
-
-**03 — Resilient Multi-Agent Coordination**
-> How can heterogeneous agents coordinate and recover under partial observability, limited communication and conflicting constraints?
-> 在局部可观测、通信受限及约束冲突的情况下，异构智能体如何保持协同并恢复正常运行？
-
-*验证路径*：丢包与时延下的协同表现、通信开销、地图一致性、任务恢复能力。
-
-### Layer 3 · Sociotechnical Systems
-
-当自主智能体进入公共空间、生产系统与城市基础设施时，如何设计协作规则、责任边界与风险治理机制。
-
-**04 — Authority and Accountability**
-> How should task authority, human intervention, escalation rules and accountability be distributed among autonomous agents, operators and institutions in shared environments?
-> 在自主智能体与人、组织共同运行的环境中，任务权限、人工介入、升级处置和责任追踪，应如何在智能体、操作人员与组织之间配置？
-
-*探索路径*：人工介入规则、任务授权、故障升级流程、决策与责任的可追溯性。
-
-### Research Approach
-
-- **系统工程** — 定义状态、任务、权限与故障恢复的契约。
-- **计算实验** — 真机、数据回放、可控故障注入与对照实验。
-- **候选机制** — 语义状态 Token、时序/情景记忆、端侧持续适应、世界模型；各自独立评估、可替换，而非预设唯一路线。
-- **社会技术分析**（计划中）— 结合 STS、Technology Policy 与 Computational Social Science，分析角色分工、运行规则、人工干预与责任机制。
+历史项目已逐步并入上述主线或归档；当前实现状态以活跃仓库代码和测试为准。
 
 ---
 
-## Fork · Engineering Philosophy
+## Systems Perspective
 
-Fork 不是一套要与现有系统竞争的技术路线，而是我在长期工程实践中逐渐形成的**工程价值观**。
+我关注能够被理解、验证、恢复和外部审查的自主系统。
 
-- **技术应当服务于真实问题** — 不为技术而技术，不以复杂度衡量价值。
-- **自主不等于失去约束** — 智能系统应当知道自己的状态、能力边界与行为权限。
-- **可靠性来自可理解与可纠正** — 能够解释状态、识别异常、恢复运行，并允许撤销与回滚。
-- **技术进步应当尊重人的利益** — 自动化不成为逃避责任的理由，效率不凌驾于安全之上。
+- 状态应包含来源、时间、坐标系、版本、置信度、有效期和权限。
+- 自主系统不仅要行动，也要知道何时不可信、如何降级和恢复。
+- 工程结论应由真实问题、可复现证据和外部反馈支持。
 
-> **佛科 · Fork —— 科技应当可靠，而不加害。**
->
-> Fork，意为从既有系统中派生能力，通过拆分、组合、替换与演进，让技术能力具备可解释、可验证、可回滚的特性。
->
-> 工程主张：**可解释 · 可验证 · 可替换 · 可回滚 · 可靠而不加害**
+深入阅读：
 
-**Fork愿景｜跨形态城市自主导航**
-
-![跨形态城市自主导航（概念渲染）](assets/vision/cross-embodiment-nav-vision.png)
-
-> 四足、双足、轮式与飞行平台在同一条城市道路上自主导航。*概念渲染图，对应上方 Selected Engineering Work 中的真实可运行证据。*
+- [Systems Perspective](docs/systems-perspective.md)
+- [Research Agenda](docs/research-agenda.md)
+- [Engineering Philosophy](docs/engineering-philosophy.md)
+- [Community & Collaboration](docs/community-and-collaboration.md)
 
 ---
 
-## Community & Collaboration
+## Contact
 
-佛科由我个人发起与维护。比起 Stars，我更看重有人真正使用、讨论、参与我的工作。
-
-**微信公众号 · 佛科思想录**
-
-<img src="assets/contact/wechat-qr.jpeg" width="180" alt="微信公众号 佛科思想录 二维码">
-
-- **关注** — 微信扫描上方二维码，或从[公众号文章](https://mp.weixin.qq.com/s/P-YrXc1eNrKBHbHvUd07pQ)页顶部点击关注。
-- **提问交流** — 关注后直接在公众号后台发消息：技术问题、架构讨论、合作意向都可以，我会逐条回复。
-
-**欢迎通过以下方式参与：**
-
-- 针对运行时设计提交 **Issue**；
-- 对状态契约、故障恢复机制进行**架构讨论**；
-- 其他机器人平台**接入适配**；
-- 提交**测试、复现实验与文档改进**；
-- 共同研究**异构机器人协同**。
-
-**长期身份：**
-
-> An independent builder and researcher working on reliable autonomy, spatial intelligence infrastructure, and the coordination of intelligent systems.
-
-**My guiding question:**
-
-*How can we build autonomous intelligent systems that are not only capable of acting, but also reliable in execution, accountable in operation, and compatible with the societies they serve?*
-
-如何构建不仅能够自主行动，而且能够可靠执行、追溯责任，并与其所服务的社会相协调的智能系统？
+- [Hugging Face · RobotPelicans](https://huggingface.co/RobotPelicans)
+- [微信公众号 · 佛科思想录](https://mp.weixin.qq.com/s/P-YrXc1eNrKBHbHvUd07pQ)
+- 技术讨论、复现反馈和协作意向，欢迎通过相关仓库 Issue 或邮件联系。

@@ -68,157 +68,83 @@ Three representative work stages; commercial work, production work, and personal
 
 ## Current Work
 
-Unified direction: **autonomous intelligent systems in real environments and how they are organized**. Three progressive research scales, each backed by buildable, tested repositories (▶ marks a runnable demo).
+Unified direction: **autonomous intelligent systems in real environments and how they are organized**.
 
 ### Shared foundation · spatial state and contracts
 
-- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — runtime for state contracts, execution leases, reason codes and on-device policy management. ▶ `runtime_demo`
-- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** — hashed tile maps, geo-anchoring, versioned state transactions and semantic tiles. ▶ 3×3 Amap base-map demo
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — state contracts, execution leases and spatial-state runtime.
+- **[spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)** — map tiles, spatial anchoring and versioned state transactions.
 
-### 1 · Single-agent intelligence — spatial state, autonomous behavior, long-horizon execution and failure recovery
+### 1 · Single-agent intelligence
 
-- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 + Livox Mid-360 + Orin NX cross-floor goal navigation, real-robot loop.
-- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — failure recovery and diagnostics: localization-loss recovery state machine, terrain safe degradation, LiDAR-contamination self-rescue, SLAM/navigation diagnostics CLI. ▶ `recovery_demo` · `terrain_demo` · `slam-doctor diagnose`
+- **[quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)** — Go2 quadruped cross-floor navigation with a real-robot loop.
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — legged navigation runtime, failure recovery and diagnostics.
+- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — offline diagnostics for robot autonomy logs.
 
-### 2 · Collective intelligence — heterogeneous robots, multi-agent coordination, information sharing and task organization
+### 2 · Collective intelligence
 
-- **[swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)** — multi-robot adapter infrastructure (C++17): unified state, map and directive contracts; weak-network QoS scheduling and versioned submap fusion; optional CycloneDDS transport; centralized federated learning (Flower) may only tune communication settings; the edge semantic gateway is the reference consumer. Measured with DDS + netem between two hosts (public internet link, not robots). ▶ `adapter_demo` · `swarm_link_probe`
+- **[swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)** — multi-robot state, map and directive contracts, weak-network coordination and submap fusion.
 
-### 3 · Sociotechnical systems — human–robot collaboration, authority allocation, risk governance and accountability
+### 3 · Sociotechnical systems
 
-No dedicated repository yet; the mechanisms live in existing contracts: execution leases and on-robot veto (ForkSpatial, `DirectiveGate`), action whitelists with side-by-side comparison and automatic rollback (`SafetyEnvelope`, `PolicyGate`), reason codes and execution reports (`ReasonCode`, `ExecutionReport`), human-takeover learning (embodied-learning-baselines-). Next: a text strategy library plus accountability-chain replay.
+No dedicated repository yet. Related mechanisms are distributed across state contracts, failure recovery, human-takeover learning and runtime execution semantics.
 
-### Learning baselines
+For the detailed systems perspective, research agenda and engineering principles, see:
 
-- **[embodied-learning-baselines-](https://github.com/zxinyu-robot/embodied-learning-baselines-)** — interruptible navigation learning (human takeover / DAgger), Go2 + Piper whole-body RL, cleaning-robot manipulation sim2real.
-
-### Tools
-
-- **[KMZ-editor](https://github.com/zxinyu-robot/KMZ-editor)** — DJI-standard KMZ route export and editing.
-
-> The former swarm-spatial-link, multi-robot-map-fusion, edge-semantic-gateway, legged-terrain-state, SensorGuardNav-Runtime, SlamDoctor-Runtime, interactive-nav-learning, terrain-carry-rl and CleanRobot-Sim2Real-skill have been merged into the repositories above and archived. Repositories marked as sanitized rewrites are public re-implementations of past engineering work containing only independently testable cores; the code and tests are authoritative.
+- [Systems Perspective](docs/systems-perspective.md)
+- [Research Agenda](docs/research-agenda.md)
+- [Engineering Philosophy](docs/engineering-philosophy.md)
 
 ---
 
-## How I Think About Systems
+## Public Collaboration
 
-### Three-Space Law: how I understand the world a robot lives in
+All `Current Work` projects are open to different levels of participation.
 
-| Space | Question answered | Description |
-| --- | --- | --- |
-| Metric Space | Where am I? What is around me? Can I pass? | Localization, maps, geometric relations, motion state |
-| Symbolic Space | What are the objects? What relations? What does the task mean? | Semantics, relations, constraints, task meaning |
-| World Space | What state does the system believe the world is in? What is trusted, what can be executed? | Task-relevant state shared among the autonomous system, upstream agents, and world models |
+Priority entry points:
 
-The Three-Space Law is an evolving systems-thinking framework — not three mutually exclusive map algorithms, and World Space is not conflated with World Model.
+- **[SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime)** — offline diagnostics, ROS 2 / rosbag2 / MCAP adapters and fault cases.
+- **[legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)** — failure recovery, runtime diagnostics and navigation integration.
+- **[ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)** — state contracts, execution semantics and runtime interfaces.
+- **[swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)** — multi-robot adapters, DDS, weak-network QoS and submap fusion.
 
-### State Contracts: how I understand system reliability
+You can start with offline logs, tests, documentation and reproducible cases without owning a robot.
 
-State is more than a data structure:
-
-- **Source & time** — where and when it was produced;
-- **Frame & version** — which spatial reference and version it belongs to;
-- **Confidence & validity** — whether it is trusted, whether it has expired;
-- **Lifecycle** — how it updates, expires, and is revoked;
-- **Authority & accountability** — who may use, modify, and act on it.
-
-This extends to task contracts, behavior execution, fault recovery, and multi-agent coordination.
-
-### Research scales: what I want to keep answering
-
-Single-agent intelligence → multi-agent systems → sociotechnical systems (see Research Agenda).
+**Discussion first. Implementation second. Validation throughout.**
 
 ---
 
-## Research Agenda
+## Open Source Projects
 
-These questions emerged gradually from engineering practice and are still evolving. I treat my current designs and learning mechanisms as hypotheses to be tested, not final answers.
+- **Runtime & Spatial State** — [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine) · [spatial-map-foundation](https://github.com/zxinyu-robot/spatial-map-foundation)
+- **Navigation & Reliability** — [SlamDoctor-Runtime](https://github.com/zxinyu-robot/SlamDoctor-Runtime) · [legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime) · [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)
+- **Multi-Robot Systems** — [swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)
+- **Embodied Learning** — [embodied-learning-baselines-](https://github.com/zxinyu-robot/embodied-learning-baselines-)
+- **Tools** — [KMZ-editor](https://github.com/zxinyu-robot/KMZ-editor)
 
-### Layer 1 · Autonomous Systems
-
-How to manage spatial state, task contracts, behavior execution, and fault recovery so that autonomous systems are verifiable and recoverable.
-
-**01 — State Reliability**
-> How should autonomous systems represent, validate and manage the lifecycle of spatial and decision-relevant states?
-
-**02 — Experience and Adaptive Behavior**
-> How can robots accumulate reusable behavioral experience without blindly reusing outdated or context-inappropriate policies?
-
-*Verification paths*: stale-state detection, relocalization success rate, recovery time, safe stop, task completion rate.
-
-### Layer 2 · Multi-Agent Coordination
-
-How to achieve multi-agent coordination, task allocation, and risk control under heterogeneous capabilities, partial information, communication constraints, and dynamic environments.
-
-**03 — Resilient Multi-Agent Coordination**
-> How can heterogeneous agents coordinate and recover under partial observability, limited communication and conflicting constraints?
-
-*Verification paths*: coordination under loss and latency, communication overhead, map consistency, task recovery.
-
-### Layer 3 · Sociotechnical Systems
-
-When autonomous agents enter public spaces, production systems, and urban infrastructure, how to design coordination rules, responsibility boundaries, and risk governance.
-
-**04 — Authority and Accountability**
-> How should task authority, human intervention, escalation rules and accountability be distributed among autonomous agents, operators and institutions in shared environments?
-
-*Exploration paths*: human intervention rules, task authorization, escalation workflows, traceability of decisions and responsibilities.
-
-### Research Approach
-
-- **Systems engineering** — define contracts for state, task, authority, and failure recovery.
-- **Computational experiments** — real robots, data replay, controlled fault injection, comparative evaluation.
-- **Candidate mechanisms** — semantic state tokens, temporal / episodic memory, end-side continual adaptation, world models; each evaluated independently and replaceable.
-- **Sociotechnical analysis** (planned) — combining STS, Technology Policy, and Computational Social Science.
+Historical projects have been consolidated into the active mainline or archived; current implementation status is defined by the active repositories.
 
 ---
 
-## Fork · Engineering Philosophy
+## Systems Perspective
 
-Fork is not a technology route competing with existing systems, but a set of **engineering values** formed through long-term practice.
+I work on autonomous systems that can be understood, validated, recovered and reviewed externally.
 
-- **Technology should serve real problems** — not technology for its own sake, not complexity as a measure of value.
-- **Autonomy is not the absence of constraints** — intelligent systems should know their state, capability bounds, and behavioral authority.
-- **Reliability comes from understandability and correctability** — explain state, recognize anomalies, recover, and allow rollback when needed.
-- **Technological progress should respect human interests** — automation is not an excuse to evade responsibility; efficiency does not outrank safety.
+- State should carry source, time, frame, version, confidence, validity and authority.
+- Autonomous systems should know when they are unreliable and how to degrade or recover.
+- Engineering claims should be grounded in real problems, reproducible evidence and external feedback.
 
-> **佛科 · Fork — Technology should be reliable, and do no harm.**
->
-> Fork means deriving capabilities from existing systems — through decomposition, composition, replacement, and evolution — to make technology interpretable, verifiable, and rollback-able.
->
-> Engineering principles: **interpretable · verifiable · replaceable · rollback-able · reliable without harm**
+Further reading:
 
-**Fork Vision · Cross-embodiment urban autonomy**
-
-![Cross-embodiment urban autonomy (concept render)](assets/vision/cross-embodiment-nav-vision.png)
-
-> Quadruped, biped, wheeled, and aerial platforms navigating the same urban road autonomously. *Concept render, backed by the runnable evidence in Selected Engineering Work above.*
+- [Systems Perspective](docs/systems-perspective.md)
+- [Research Agenda](docs/research-agenda.md)
+- [Engineering Philosophy](docs/engineering-philosophy.md)
+- [Community & Collaboration](docs/community-and-collaboration.md)
 
 ---
 
-## Community & Collaboration
+## Contact
 
-Fork is initiated and maintained by me personally. More than stars, I value people actually using, discussing, and contributing to my work.
-
-**WeChat Official Account · 佛科思想录 (Fork Contemplations)**
-
-<img src="assets/contact/wechat-qr.jpeg" width="180" alt="WeChat Official Account 佛科思想录 QR code">
-
-- **Follow** — Scan the QR code above in WeChat, or tap Follow at the top of [this article](https://mp.weixin.qq.com/s/P-YrXc1eNrKBHbHvUd07pQ).
-- **Ask & discuss** — Message the account directly after following: technical questions, architecture discussions, collaboration ideas. I reply to each one.
-
-**Ways to participate:**
-
-- Open **issues** on runtime design;
-- Engage in **architecture discussions** on state contracts and failure-recovery mechanisms;
-- **Port and adapt** to other robot platforms;
-- Contribute **tests, reproducible experiments, and documentation improvements**;
-- Collaborate on **heterogeneous robot coordination**.
-
-**Long-term identity:**
-
-> An independent builder and researcher working on reliable autonomy, spatial intelligence infrastructure, and the coordination of intelligent systems.
-
-**My guiding question:**
-
-*How can we build autonomous intelligent systems that are not only capable of acting, but also reliable in execution, accountable in operation, and compatible with the societies they serve?*
+- [Hugging Face · RobotPelicans](https://huggingface.co/RobotPelicans)
+- [WeChat · 佛科思想录](https://mp.weixin.qq.com/s/P-YrXc1eNrKBHbHvUd07pQ)
+- For technical discussion, reproducibility feedback or collaboration, please use a repository issue or email.
