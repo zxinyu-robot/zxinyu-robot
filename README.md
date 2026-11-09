@@ -86,11 +86,11 @@
 
 ### 3 · 社会技术系统 — 人机协作、权限分配、风险治理与责任追踪
 
-暂无独立仓库，相关机制先落在已有契约里：执行租约与本机否决权（ForkSpatial、`DirectiveGate`）、动作白名单与旁路比对 / 自动回滚（`SafetyEnvelope`、`PolicyGate`）、原因码与执行回执（`ReasonCode`、`ExecutionReport`）、人工接管学习（embodied-learning-baselines）。下一步：文本策略库 + 责任链回放。
+暂无独立仓库，相关机制先落在已有契约里：执行租约与本机否决权（ForkSpatial、`DirectiveGate`）、动作白名单与旁路比对 / 自动回滚（`SafetyEnvelope`、`PolicyGate`）、原因码与执行回执（`ReasonCode`、`ExecutionReport`）、人工接管学习（embodied-learning-baselines-）。下一步：文本策略库 + 责任链回放。
 
 ### 学习基线
 
-- **[embodied-learning-baselines](https://github.com/zxinyu-robot/embodied-learning-baselines)** — 可中断导航学习（人工接管 / DAgger）、Go2 + Piper 一体化 RL、清洁机器人操作 sim2real。
+- **[embodied-learning-baselines-](https://github.com/zxinyu-robot/embodied-learning-baselines-)** — 可中断导航学习（人工接管 / DAgger）、Go2 + Piper 一体化 RL、清洁机器人操作 sim2real。
 
 ### 工具
 

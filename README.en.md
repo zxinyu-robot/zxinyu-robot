@@ -86,11 +86,11 @@ Unified direction: **autonomous intelligent systems in real environments and how
 
 ### 3 · Sociotechnical systems — human–robot collaboration, authority allocation, risk governance and accountability
 
-No dedicated repository yet; the mechanisms live in existing contracts: execution leases and on-robot veto (ForkSpatial, `DirectiveGate`), action whitelists with side-by-side comparison and automatic rollback (`SafetyEnvelope`, `PolicyGate`), reason codes and execution reports (`ReasonCode`, `ExecutionReport`), human-takeover learning (embodied-learning-baselines). Next: a text strategy library plus accountability-chain replay.
+No dedicated repository yet; the mechanisms live in existing contracts: execution leases and on-robot veto (ForkSpatial, `DirectiveGate`), action whitelists with side-by-side comparison and automatic rollback (`SafetyEnvelope`, `PolicyGate`), reason codes and execution reports (`ReasonCode`, `ExecutionReport`), human-takeover learning (embodied-learning-baselines-). Next: a text strategy library plus accountability-chain replay.
 
 ### Learning baselines
 
-- **[embodied-learning-baselines](https://github.com/zxinyu-robot/embodied-learning-baselines)** — interruptible navigation learning (human takeover / DAgger), Go2 + Piper whole-body RL, cleaning-robot manipulation sim2real.
+- **[embodied-learning-baselines-](https://github.com/zxinyu-robot/embodied-learning-baselines-)** — interruptible navigation learning (human takeover / DAgger), Go2 + Piper whole-body RL, cleaning-robot manipulation sim2real.
 
 ### Tools
 
