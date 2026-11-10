@@ -7,6 +7,19 @@
 
 **中文** | [English](./README.en.md)
 
+## Technical Wiki
+
+个人技术体系、工程价值观、项目关系、工程案例和验证方法统一整理在 Wiki：
+
+**[进入技术 Wiki →](https://github.com/zxinyu-robot/zxinyu-robot/wiki)**
+
+- [Technical System](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Technical-System)
+- [Engineering Values](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Engineering-Values)
+- [Project Map](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Project-Map)
+- [Engineering Cases](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Engineering-Cases)
+
+---
+
 ## About Me
 
 > **From Engineering Practice to Systems Thinking**
