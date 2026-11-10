@@ -21,48 +21,17 @@
 
 三个代表性工作阶段；商业项目、实际工作与个人开源重构分开表述。
 
-### 案例 A · 受限环境下的无人飞行器自主导航系统
+### 案例 A · 受限环境下的无人飞行器自主导航
 
-- **背景**：无 GPS、弱网断网、工业巡检等受限环境中的无人机与多机导航。
-- **职责**：自主导航系统研发、状态机任务调度、多机协同调度、嵌入式部署与系统集成优化。
-- **实现**：基于几何3DSLAM与传统运动控制，并开发基于消息中间件的无 GPS 无人机导航任务执行中间件产品；以及参与军用飞行器导航模块研发。
-
-
-**▶ 演示（点击封面播放）**
-
-| 军工飞行器导航模块（脱敏模拟器展示） | 无 GPS 无人机黑暗环境简支桥梁自主巡检流程 |
-| --- | --- |
-| [![军工飞行器导航模块](assets/demo/uav_gps_denied_15s_cover.png)](assets/demo/uav_gps_denied_15s.mp4) | [![黑暗环境自主巡检](assets/demo/uav_dark_patrol_cover.png)](assets/demo/uav_dark_patrol.mp4) |
+无 GPS、弱网/断网和工业巡检场景中的无人机自主导航案例。工程说明与演示素材已迁移到 [uav](https://github.com/zxinyu-robot/uav)，详见其 [`docs/demo-case-a.md`](https://github.com/zxinyu-robot/uav/blob/main/docs/demo-case-a.md)。
 
 ### 案例 B · 动态环境下的足式机器人跨楼层长航时自主导航
 
-- **背景**：动态非结构化环境中的四足机器人长航时、跨楼层目标导航。
-- **职责**：端边协同资源分配、自研导航中间件、关键算法场景适配优化。
-- **实现**：构建端边协同导航中间件，统一定位状态、任务契约、规划接口与故障恢复语义。
-- **结果**：跨楼层闭环通过，真机在线建图与规划已运行（对应 [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)）。
-
-**▶ 演示**
-
-<p align="center"><img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/cross_floor_demo.webp" width="480"></p>
-
-| 端边协同地图拼接 | 在线实时体素 | 在线实时局部点云 |
-| --- | --- | --- |
-| <img src="assets/demo/img_v3_0214n_cc9e8535-cba3-4ea1-aeb3-80fbb87d9afg.jpg" width="380"> | <img src="assets/demo/54.jpg" width="380"> | <img src="assets/demo/pointcloud-pano.png" width="380"> |
+Unitree Go2 跨楼层自主导航闭环：端边协同、空间状态、任务契约与故障恢复。实现与演示已归档到 [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)，详见其 [`docs/demo-case-b.md`](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws/blob/main/docs/demo-case-b.md)。
 
 ### 案例 C · 空间状态与智能系统交互
 
-- **背景**：机器人的空间状态如何被上层智能体与世界模型可靠消费。
-- **职责**：三空间认知框架的工程化、世界空间状态数据分发服务设计。
-- **实现**：自研基于足式机器人世界空间状态的数据分发服务中间件，与上游世界模型进行异步状态任务导航行为交互。
-- **结果**：公开重构为可构建、可测试的核心——状态契约、定位恢复、地形契约、弱网协同、共享内存融合、只读诊断。
-
-**▶ 演示（空间状态交互 / 数据流）**
-
-| 状态契约与任务交互时序 | Fork SpatialLink 空间数据流 |
-| --- | --- |
-| [<img src="https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png" width="360">](https://raw.githubusercontent.com/zxinyu-robot/quadruped-crossfloor-nav-ws/main/docs/media/state_flow_seq.png) | [<img src="assets/demo/fork-spatiallink-flow.png" width="360">](assets/demo/fork-spatiallink-flow.png) |
-
-<small>点击查看大图：左为状态契约与任务交互时序，右为 Fork SpatialLink（FSLP）边端—边侧空间数据流。</small>
+围绕状态契约、执行租约、空间状态和上层智能体交互的公开重构。工程说明已迁移到 [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)，详见其 [`docs/demo-case-c.md`](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine/blob/main/docs/demo-case-c.md)。
 
 ---
 
