@@ -22,7 +22,7 @@
 - [工程案例](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Engineering-Cases)
 - [验证与证据](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Validation-and-Evidence)
 
-## 我的工作方向
+## 目前仓库维护项目
 
 ### 可靠自主
 
@@ -41,19 +41,6 @@
 ### 具身学习
 
 - **[embodied-learning-baselines-](https://github.com/zxinyu-robot/embodied-learning-baselines-)** — 具身学习基线与交互式导航实验。
-
-## 代表性案例
-
-- **案例 A：无人机自主导航** — 无 GPS、弱网环境下的无人机自主导航，见 [uav](https://github.com/zxinyu-robot/uav)。
-- **案例 B：四足机器人跨楼层导航** — Go2 跨楼层自主导航闭环，见 [quadruped-crossfloor-nav-ws](https://github.com/zxinyu-robot/quadruped-crossfloor-nav-ws)。
-- **案例 C：空间状态运行时** — 空间状态、执行租约和智能系统交互，见 [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)。
-
-## 当前重点
-
-- 让空间状态显式化、版本化，并且可恢复。
-- 建立面向可靠自主的运行时语义。
-- 连接机器人执行与多智能体协同。
-- 将真实世界的失败转化为可复用的验证资产。
 
 ## 协作
 
