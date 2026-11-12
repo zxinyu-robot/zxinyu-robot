@@ -48,7 +48,7 @@
 
 欢迎围绕机器人运行时、空间状态、故障恢复、多机器人协同和可复现验证展开讨论与协作。
 
-###优先入口：
+优先入口：
 
 - [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
 - [legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)
