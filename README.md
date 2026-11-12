@@ -15,12 +15,14 @@
 
 **[进入技术 Wiki →](https://github.com/zxinyu-robot/zxinyu-robot/wiki)**
 
-- [关于我](https://github.com/zxinyu-robot/zxinyu-robot/wiki/About-Me)
-- [技术体系](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Technical-System)
-- [工程价值观](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Engineering-Values)
-- [项目关系](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Project-Map)
-- [工程案例](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Engineering-Cases)
-- [验证与证据](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Validation-and-Evidence)
+| 名称 | 链接 | 简介 |
+|------|------|------|
+| 关于我 | [关于我](https://github.com/zxinyu-robot/zxinyu-robot/wiki/About-Me) | 从通信工程到无人系统研发，关注真实环境下的可靠自主、空间状态与地图基础设施、多机器人协同等 |
+| 技术体系 | [技术体系](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Technical-System) | 真实环境中自主机器人系统的分层架构，涵盖状态表示、行为组织、不确定性恢复与多智能体协调 |
+| 工程价值观 | [工程价值观](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Engineering-Values) | 可追溯状态、可恢复自主、安全边界、证据优先、可复现性、先讨论后实现 |
+| 项目关系 | [项目关系](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Project-Map) | 公开项目分组（空间基础、机器人导航、多机系统、空中机器人、具身学习）及归档迁移说明 |
+| 工程案例 | [工程案例](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Engineering-Cases) | 空中导航、四足跨楼层导航、运行时恢复等案例，强调目标-边界-证据-局限的完整呈现 |
+| 验证与证据 | [验证与证据](https://github.com/zxinyu-robot/zxinyu-robot/wiki/Validation-and-Evidence) | 证据等级定义（已实现、CI验证、仿真、回放、真机、运行证据）及报告模板 |
 
 ## 目前仓库维护项目
 
