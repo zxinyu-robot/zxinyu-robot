@@ -46,15 +46,13 @@
 
 欢迎围绕机器人运行时、空间状态、故障恢复、多机器人协同和可复现验证展开讨论与协作。
 
-优先入口：
+###优先入口：
 
 - [ForkSpatial-Runtime-Engine](https://github.com/zxinyu-robot/ForkSpatial-Runtime-Engine)
 - [legged-navigation-runtime](https://github.com/zxinyu-robot/legged-navigation-runtime)
 - [swarm-adapter-foundation](https://github.com/zxinyu-robot/swarm-adapter-foundation)
 
-没有真实机器人也可以从离线日志、测试、文档和可复现案例开始。
-
-**先讨论，再实现，持续验证。**
+**没有真实机器人也可以从离线日志、测试、文档和可复现案例开始。**
 
 ## 联系方式
 
