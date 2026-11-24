@@ -6,7 +6,7 @@
 
 [![Email](https://img.shields.io/badge/Email-zxiangsheng%40outlook.com-0A66C2?logo=microsoftoutlook)](mailto:zxiangsheng@outlook.com)
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-RobotPelicans-FFD21E)](https://huggingface.co/RobotPelicans)
-[微信公众号 · 佛科思想录](https://mp.weixin.qq.com/s/P-YrXc1eNrKBHbHvUd07pQ)
+[![WeChat](https://img.shields.io/badge/微信公众号-佛科思想录-07C160?logo=wechat&logoColor=white)](https://mp.weixin.qq.com/s/P-YrXc1eNrKBHbHvUd07pQ)
 
 [English](./README.en.md)
 
